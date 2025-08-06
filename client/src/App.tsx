@@ -1,11 +1,9 @@
-import { useState } from 'react'
+import Home from "./pages/home"
 
 function App() {
 
   return (
-    <>
-      <h1>Hello Vite + React!</h1>
-    </>
+    <Home />
   )
 }
 
