@@ -1,9 +1,10 @@
 #syntax=docker/dockerfile:1
 
-# Build
-FROM node:22.18.0-bullseye-slim AS builder
+FROM node:22.18.0-bullseye-slim
 
 WORKDIR /usr/src/client
+
+RUN addgroup --system appgroup && adduser --system --ingroup appgroup appuser
 
 COPY package*.json ./
 
@@ -13,15 +14,12 @@ RUN --mount=type=cache,target=/usr/src/client/.npm \
 
 COPY . .
 
-RUN npm run build
+RUN chown -R appuser:appgroup /usr/src/client
 
-# Runtime
-FROM nginxinc/nginx-unprivileged:1.28.0-alpine
+USER appuser
 
-COPY  nginx.conf etc/nginx/conf.d/default.conf
+EXPOSE 5173
 
-COPY --from=builder /usr/src/client/dist /usr/share/nginx/html
+ENV VITE_HOST=0.0.0.0
 
-EXPOSE 8080
-
-CMD ["nginx", "-g", "daemon off;"]
+CMD ["npm", "run", "dev"]

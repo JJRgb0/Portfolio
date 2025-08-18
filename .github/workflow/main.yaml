@@ -1,0 +1,90 @@
+name: Portfolio CI/CD
+
+on:
+  pull_request:
+    branches:
+      - main
+      - release/*
+      - develop
+
+permissions:
+  id_token: write
+  with:
+    role-to-assume:
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Set Up NodeJS
+        uses: actions/setup-node@v4
+        with:
+          node-version 22
+
+      - run: npm ci
+
+      - run: npm run lint
+
+  deploy-preview:
+    needs: lint
+    if: startsWith(github.ref_name, 'releases')
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set Up NodeJS
+        uses: actions/setup-node@v4
+        with:
+          node-version 22
+
+      - name: Install app dependencies
+        run: npm ci
+
+      - name: Build the app
+        run: npm run build
+
+      - name: Configure AWS
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: ${{ secrets.AWS_ROLE_ARN }}
+          aws-region: sa-east-1
+
+      - name: Deploy Preview To s3 Bucket
+        run: aws s3 sync ./dist s3://${{ secrets.AWS_S3_BUCKET_NAME }} --delete
+
+      - name: Invalidate CloudFront Cache
+        run: aws cloudfront create-invalidation --distribution-id ${{ secrets.AWS_CLOUDFRONT_ID }} --paths "/*"
+
+
+  deploy-production:
+    needs: lint
+    if: github.ref_name == 'main'
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+
+      - name: Set Up NodeJS
+        uses: actions/setup-node@v4
+        with:
+          node-version 22
+
+      - name: Install app dependencies
+        run: npm ci
+
+      - name: Build the app
+        run: npm run build
+
+      - name: Configure AWS
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: ${{ secrets.AWS_ROLE_ARN }}
+          aws-region: sa-east-1
+
+      - name: Deploy Preview To s3 Bucket
+        run: aws s3 sync ./dist s3://${{ secrets.AWS_S3_BUCKET_NAME }} --delete
+
+      - name: Invalidate CloudFront Cache
+        run: aws cloudfront create-invalidation --distribution-id ${{ secrets.AWS_CLOUDFRONT_ID }} --paths "/*"
+

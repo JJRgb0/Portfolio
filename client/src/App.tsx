@@ -1,9 +1,13 @@
-import Home from "./pages/home"
+import Main from "./pages/Main"
+import Navbar from './components/Navbar'
 
 function App() {
 
   return (
-    <Home />
+    <>
+      <Navbar />
+      <Main />
+    </>
   )
 }
 
