@@ -2,11 +2,11 @@ export default function Navbar() {
     return (
         <nav className="navbar">
             <ul>
-                <li>1</li>
-                <li>2</li>
-                <li>3</li>
-                <li>4</li>
-                <li>5</li>
+                <li>Home</li>
+                <li>Knowledge</li>
+                <li>Experience</li>
+                <li>About</li>
+                <li>Contact</li>
             </ul>
         </nav>
     )

@@ -1,71 +1,78 @@
 @use '../variables' as *;
-@use '../mixins' as mix;
+@use '../mixins' as *;
 
 .home {
+
     height: 100vh;
     width: 100%;
-    padding-top: 3rem;
-    padding-right: 1rem;
-    @include mix.flex_c(start, flex-end);
+    padding-top: 5vh;
+    position: relative;
 
-    >img {
-        width: 60%;
+    .titles {
+        width: max-content;
         position: absolute;
-        left: -150px;
-        bottom: 0;
-        border-radius: 20px;
-        box-shadow: 0 0 30px rgba(255, 100, 150, 0.4);
-    }
-
-    h1,
-    h2 {
-        font-family: $heading-font;
+        top: 10%;
+        left: 50%;
+        transform: translateX(-50%);
+        @include flex_c(center, flex-start);
     }
 
     h1 {
-        font-size: 10rem;
-        line-height: .85;
-        padding-bottom: 2rem;
-        text-align: right;
-        background: -webkit-linear-gradient($primary-color, $secondary-color);
-        -webkit-background-clip: text;
-        -webkit-text-stroke: 3px transparent;
-        color: #101010;
+        font-size: 7vw;
+        color: $secondary-color;
+        line-break: unset;
+        text-align: left;
+        letter-spacing: .3rem;
         -moz-user-select: none;
+        user-select: none;
+        text-shadow:
+            /* A subtle, sharp inner glow */
+            0 0 3px rgba(255, 255, 255, 0.8),
+
+            /* The main warm glow */
+            0 0 20px rgba(255, 223, 186, 0.7),
+            /* A light orange/gold */
+
+            /* A larger, softer, outer aura */
+            0 0 45px rgba(255, 165, 0, 0.5),
+            /* Orange */
+
+            /* A faint, deep red halo */
+            0 0 75px rgba(255, 69, 0, 0.3);
     }
 
     h2 {
-        font-size: 4rem;
-        background: -webkit-linear-gradient($primary-color, $secondary-color);
-        -webkit-background-clip: text;
-        color: transparent;
+        font-size: 3.5vw;
+        text-align: left;
+        color: $tertiary-color;
+        -moz-user-select: none;
+        user-select: none;
     }
 
-    q {
-        font-size: 1.5rem;
-        font-family: $body-font;
+    .description {
+        position: absolute;
+        width: 25%;
+        top: 50%;
+        left: 4%;
+        @include flex_c(flex-start, flex-start);
+        gap: 0.75vw 0;
+    }
+
+    p {
+        font-size: 1.65vw;
         font-style: italic;
+        color: $tertiary-color;
+        text-align: left;
     }
 
-    .CTA {
-        @include mix.flex_r(space-evenly, flex-end);
-        width: 50%;
-
-        img {
-            width: 8rem;
-        }
-
-        button {
-            background-color: $secondary-color;
-            border-radius: 10px;
-            font-size: 1.5rem;
-            font-family: $body-font;
-            font-weight: bold;
-            padding: 4px 10px 4px 10px;
-        }
-
-        div {
-            @include mix.flex_c(center, center);
-        }
+    button {
+        font-size: 1.65vw;
+        background-color: $secondary-color;
+        padding: .7vw 1.25vw .7vw 1.25vw;
+        border-radius: 0.8vw;
+        color: $bg-color;
+        border: none;
+        text-transform: uppercase;
+        font-weight: bold;
     }
 }

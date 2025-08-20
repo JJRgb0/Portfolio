@@ -11,3 +11,15 @@
     justify-content: $justify;
     align-items: $align;
 }
+
+@mixin media($width) {
+    @media(max-width: $width) {
+        @content;
+    }
+}
+
+@mixin portrait {
+    @media(orientation: portrait) {
+        @content;
+    }
+}
