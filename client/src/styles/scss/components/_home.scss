@@ -75,4 +75,6 @@
         text-transform: uppercase;
         font-weight: bold;
     }
+
+    @include portrait {}
 }

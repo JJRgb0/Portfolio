@@ -1,0 +1,120 @@
+@use '../variables' as *;
+@use '../mixins' as *;
+
+.menu {
+    width: auto;
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 0;
+    z-index: 3;
+    transition: all ease-out 500ms;
+
+    @include portrait {
+        @include media($lg) {
+            transform: translate(0, 0);
+            right: 0;
+            left: auto;
+
+            @include flex_r(center, flex-start);
+
+            &.off {
+                transform: translateX(50%);
+            }
+        }
+    }
+}
+
+.navbar {
+    width: 40vw;
+    background-color: $secondary-bg-color;
+    border-radius: 0 0 4rem 4rem;
+    height: calc(2rem + 3vh);
+    transition: all ease-out 500ms;
+
+    ul {
+        list-style: none;
+        width: 100%;
+        height: 100%;
+        @include flex_r(space-evenly, center);
+    }
+
+    li {
+        color: $secondary-color;
+        font-family: $body-font;
+        font-size: 1.1vw;
+    }
+
+    @include portrait {
+        width: 60vw;
+        border-radius: 0 0 6rem 6rem;
+
+        li {
+            font-size: 1.6vw;
+        }
+
+        @include media($lg) {
+            width: auto;
+            height: auto;
+            padding: 2rem 1rem 2rem 1.25rem;
+            border-radius: 0 0 0 3rem;
+
+            ul {
+                @include flex_c(space-evenly, flex-start);
+                gap: 1.75rem 0;
+            }
+
+            li {
+                font-size: 1.2rem;
+            }
+
+            &.off {
+                visibility: hidden;
+                opacity: 0;
+            }
+        }
+
+        @include media($md) {
+
+            li {
+                font-size: 0.9rem;
+            }
+        }
+    }
+}
+
+.menu-icon {
+    display: none;
+    position: relative;
+    top: 1.5rem;
+    right: 0.75rem;
+    cursor: pointer;
+    -moz-user-select: none;
+    user-select: none;
+
+    .bar {
+        transform-origin: center;
+        transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    }
+
+    &.is-open {
+
+        .bar-middle {
+            opacity: 0;
+        }
+
+        .bar-top {
+            transform: translate(-15px, 20px) rotate(45deg);
+        }
+
+        .bar-bottom {
+            transform: translate(-15px, -20px) rotate(-45deg);
+        }
+    }
+
+    @include portrait {
+        @include media($lg) {
+            display: block;
+        }
+    }
+}
