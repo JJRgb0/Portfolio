@@ -27,7 +27,7 @@
   width: 40vw;
   background-color: #2b2a29;
   border-radius: 0 0 4rem 4rem;
-  height: calc(2rem + 3vh);
+  height: calc(2rem + 4vh);
   transition: all ease-out 500ms;
 }
 .navbar ul {
@@ -43,6 +43,11 @@
   color: #f2e7d5;
   font-family: "Nunito", sans-serif;
   font-size: 1.1vw;
+  transition: ease-in 300ms;
+  cursor: pointer;
+}
+.navbar li:hover {
+  text-shadow: 0 0 3px rgba(255, 255, 255, 0.8), 0 0 20px rgba(255, 223, 186, 0.7), 0 0 45px rgba(255, 165, 0, 0.5), 0 0 75px rgba(255, 69, 0, 0.3);
 }
 @media (orientation: portrait) {
   .navbar {
@@ -169,7 +174,134 @@
   border: none;
   text-transform: uppercase;
   font-weight: bold;
+  cursor: pointer;
+  transition: 300ms ease-in;
 }
+.home button:hover {
+  background-color: #2b2a29;
+  color: #f2e7d5;
+  text-shadow: 0 0 3px rgba(255, 255, 255, 0.8), 0 0 20px rgba(255, 223, 186, 0.7), 0 0 45px rgba(255, 165, 0, 0.5), 0 0 75px rgba(255, 69, 0, 0.3);
+}
+.home .links {
+  position: absolute;
+  right: 4%;
+  top: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.9vw 0;
+}
+.home .links svg {
+  width: calc(6vh + 20px);
+  height: calc(6vh + 20px);
+  cursor: pointer;
+  transition: 300ms ease-out;
+}
+.home .links svg:hover {
+  transform: scale(1.1);
+}
+@media (orientation: portrait) {
+  .home .description {
+    bottom: 1vh;
+    width: 35%;
+    top: auto;
+    gap: 1vh;
+    left: 3%;
+  }
+  .home p {
+    font-size: calc(1vh + 1vw);
+  }
+  .home button {
+    font-size: calc(1.25vh + 1.25vw);
+    padding: 0.7vh 1.25vh 0.7vh 1.25vh;
+  }
+  .home .links {
+    gap: 1vh 0;
+    right: auto;
+    left: 3%;
+  }
+}
+@media (max-width: 1024px) {
+  .home h1 {
+    font-size: 6.5vw;
+  }
+  .home .links svg {
+    width: calc(4vh + 20px);
+    height: calc(4vh + 20px);
+  }
+}
+@media (max-width: 867px) {
+  .home .titles {
+    top: 20%;
+  }
+  .home h1 {
+    font-size: 6vw;
+  }
+  .home .description {
+    left: 6%;
+  }
+}
+@media (max-width: 867px) and (orientation: portrait) {
+  .home .links {
+    left: 6%;
+  }
+}
+@media (max-width: 470px) {
+  .home .titles {
+    width: 95%;
+  }
+  .home h1 {
+    line-break: auto;
+    font-size: 7vw;
+  }
+  .home .description {
+    width: 45%;
+    left: 3%;
+  }
+  .home .links svg {
+    width: calc(4vh + 15px);
+    height: calc(4vh + 15px);
+  }
+}
+@media (max-width: 470px) and (orientation: portrait) {
+  .home .links {
+    left: 3%;
+  }
+}
+@media (min-aspect-ratio: 2.3333333333) {
+  .home .titles {
+    width: 95%;
+    top: 15%;
+  }
+  .home h1 {
+    font-size: 4.5vw;
+  }
+  .home .description {
+    bottom: 3%;
+    width: 35%;
+    top: auto;
+    gap: 1vh;
+    left: 3%;
+  }
+  .home p {
+    font-size: 1.5vw;
+  }
+  .home button {
+    font-size: 1.5vw;
+  }
+  .home .links {
+    right: auto;
+    left: 3%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 0 1vw;
+    top: 3rem;
+  }
+}
+
 *,
 *::before,
 *::after {
@@ -214,6 +346,14 @@ span {
   filter: blur(0.25vw);
 }
 @media (orientation: portrait) {
+  .main video {
+    height: 100vh;
+    top: 140%;
+    left: 40%;
+    transform: scale(2) translateY(-50%);
+  }
+}
+@media (min-aspect-ratio: 2.3333333333) {
   .main video {
     height: 100vh;
     top: 140%;

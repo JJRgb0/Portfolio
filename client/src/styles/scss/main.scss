@@ -54,5 +54,12 @@ span {
             left: 40%;
             transform: scale(2) translateY(-50%);
         }
+
+        @include min-aspect($ultra-wide) {
+            height: 100vh;
+            top: 140%;
+            left: 40%;
+            transform: scale(2) translateY(-50%);
+        }
     }
 }

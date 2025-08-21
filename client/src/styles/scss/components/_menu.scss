@@ -29,7 +29,7 @@
     width: 40vw;
     background-color: $secondary-bg-color;
     border-radius: 0 0 4rem 4rem;
-    height: calc(2rem + 3vh);
+    height: calc(2rem + 4vh);
     transition: all ease-out 500ms;
 
     ul {
@@ -43,6 +43,12 @@
         color: $secondary-color;
         font-family: $body-font;
         font-size: 1.1vw;
+        transition: ease-in 300ms;
+        cursor: pointer;
+
+        &:hover {
+            text-shadow: $sun-glow;
+        }
     }
 
     @include portrait {

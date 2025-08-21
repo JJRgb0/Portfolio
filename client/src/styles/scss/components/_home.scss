@@ -25,20 +25,7 @@
         letter-spacing: .3rem;
         -moz-user-select: none;
         user-select: none;
-        text-shadow:
-            /* A subtle, sharp inner glow */
-            0 0 3px rgba(255, 255, 255, 0.8),
-
-            /* The main warm glow */
-            0 0 20px rgba(255, 223, 186, 0.7),
-            /* A light orange/gold */
-
-            /* A larger, softer, outer aura */
-            0 0 45px rgba(255, 165, 0, 0.5),
-            /* Orange */
-
-            /* A faint, deep red halo */
-            0 0 75px rgba(255, 69, 0, 0.3);
+        text-shadow: $sun-glow;
     }
 
     h2 {
@@ -74,7 +61,159 @@
         border: none;
         text-transform: uppercase;
         font-weight: bold;
+        cursor: pointer;
+        transition: 300ms ease-in;
+
+        &:hover {
+            background-color: $secondary-bg-color;
+            color: $secondary-color;
+            text-shadow: $sun-glow;
+        }
     }
 
-    @include portrait {}
+    .links {
+        position: absolute;
+        right: 4%;
+        top: 50%;
+        @include flex-c(center, center);
+        gap: 0.9vw 0;
+
+        svg {
+            width: calc(6vh + 20px);
+            height: calc(6vh + 20px);
+
+            cursor: pointer;
+            transition: 300ms ease-out;
+
+            &:hover {
+                transform: scale(1.1);
+            }
+        }
+    }
+
+    // RESPONSIVENESS
+
+    @include portrait {
+
+        .description {
+            bottom: 1vh;
+            width: 35%;
+            top: auto;
+            gap: 1vh;
+            left: 3%;
+        }
+
+        p {
+            font-size: calc(1vh + 1vw);
+        }
+
+        button {
+            font-size: calc(1.25vh + 1.25vw);
+            padding: .7vh 1.25vh .7vh 1.25vh;
+        }
+
+        .links {
+            gap: 1vh 0;
+            right: auto;
+            left: 3%;
+        }
+    }
+
+    @include media($lg) {
+        h1 {
+            font-size: 6.5vw;
+        }
+
+        .links {
+            svg {
+                width: calc(4vh + 20px);
+                height: calc(4vh + 20px);
+            }
+        }
+    }
+
+    @include media($mmd) {
+
+        .titles {
+            top: 20%;
+        }
+
+        h1 {
+            font-size: 6vw;
+        }
+
+        .description {
+            left: 6%;
+        }
+
+        @include portrait {
+            .links {
+                left: 6%;
+            }
+        }
+    }
+
+    @include media ($ssm) {
+        .titles {
+            width: 95%;
+        }
+
+        h1 {
+            line-break: auto;
+            font-size: 7vw;
+        }
+
+        .description {
+            width: 45%;
+            left: 3%;
+        }
+
+        .links {
+            svg {
+                width: calc(4vh + 15px);
+                height: calc(4vh + 15px);
+            }
+        }
+
+        @include portrait {
+            .links {
+                left: 3%;
+            }
+        }
+    }
+
+    @include min-aspect($ultra-wide) {
+        .titles {
+            width: 95%;
+            top: 15%;
+        }
+
+        h1 {
+            font-size: 4.5vw;
+        }
+
+        .description {
+            bottom: 3%;
+            width: 35%;
+            top: auto;
+            gap: 1vh;
+            left: 3%;
+        }
+
+        p {
+            font-size: 1.5vw;
+        }
+
+        button {
+            font-size: 1.5vw;
+        }
+
+        .links {
+            right: auto;
+            left: 3%;
+            @include flex_r(center, center);
+            gap: 0 1vw;
+            top: 3rem;
+        }
+    }
 }

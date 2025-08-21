@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Hamburger from "./icons/Hamburger";
+import Hamburger from "./icons/hamburger-icon";
 
 export default function Navbar() {
 

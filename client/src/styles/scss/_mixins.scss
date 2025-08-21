@@ -18,6 +18,12 @@
     }
 }
 
+@mixin min-aspect($aspect-ratio) {
+    @media(min-aspect-ratio: $aspect-ratio) {
+        @content;
+    }
+}
+
 @mixin portrait {
     @media(orientation: portrait) {
         @content;

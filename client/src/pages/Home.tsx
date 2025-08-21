@@ -1,3 +1,7 @@
+import Download from "../components/icons/download-icon"
+import Github from "../components/icons/github-icon"
+import Linkedin from "../components/icons/linkedin-icon"
+
 function Home() {
 
     return (
@@ -9,6 +13,11 @@ function Home() {
             <div className="description">
                 <p>Passionate about learning, my goal is to continue developing increasingly efficient systems, helping more people to achieve positive results.</p>
                 <button>Contact-me</button>
+            </div>
+            <div className="links">
+                <Download />
+                <Github />
+                <Linkedin />
             </div>
         </section>
     )
