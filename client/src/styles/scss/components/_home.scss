@@ -96,7 +96,7 @@
     @include portrait {
 
         .description {
-            bottom: 1vh;
+            bottom: 2vh;
             width: 35%;
             top: auto;
             gap: 1vh;
@@ -213,7 +213,7 @@
             left: 3%;
             @include flex_r(center, center);
             gap: 0 1vw;
-            top: 3rem;
+            top: 3vh;
         }
     }
 }

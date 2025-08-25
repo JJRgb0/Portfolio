@@ -1,0 +1,28 @@
+@use '../variables' as *;
+@use '../mixins' as *;
+
+.main {
+    width: 100vw;
+    position: relative;
+    @include flex_c(flex-start, flex-start);
+
+    video {
+        width: 100%;
+        position: fixed;
+        top: 115%;
+        left: 0;
+        z-index: -1;
+        mix-blend-mode: screen;
+        object-fit: contain;
+
+        @include portrait {
+            height: 100vh;
+            left: 40%;
+        }
+
+        @include min-aspect($ultra-wide) {
+            height: 100vh;
+            left: 40%;
+        }
+    }
+}

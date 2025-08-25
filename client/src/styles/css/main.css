@@ -1,4 +1,34 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat+Alternates:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap");
+.main {
+  width: 100vw;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+.main video {
+  width: 100%;
+  position: fixed;
+  top: 115%;
+  left: 0;
+  z-index: -1;
+  mix-blend-mode: screen;
+  object-fit: contain;
+}
+@media (orientation: portrait) {
+  .main video {
+    height: 100vh;
+    left: 40%;
+  }
+}
+@media (min-aspect-ratio: 2.3333333333) {
+  .main video {
+    height: 100vh;
+    left: 40%;
+  }
+}
+
 .menu {
   width: auto;
   position: fixed;
@@ -25,7 +55,8 @@
 
 .navbar {
   width: 40vw;
-  background-color: #2b2a29;
+  background-color: rgba(42, 42, 41, 0.6);
+  backdrop-filter: blur(calc(5vh + 5vw));
   border-radius: 0 0 4rem 4rem;
   height: calc(2rem + 4vh);
   transition: all ease-out 500ms;
@@ -203,7 +234,7 @@
 }
 @media (orientation: portrait) {
   .home .description {
-    bottom: 1vh;
+    bottom: 2vh;
     width: 35%;
     top: auto;
     gap: 1vh;
@@ -298,8 +329,15 @@
     justify-content: center;
     align-items: center;
     gap: 0 1vw;
-    top: 3rem;
+    top: 3vh;
   }
+}
+
+.projects {
+  position: relative;
+  width: 100%;
+  height: 300vh;
+  border: 2px solid red;
 }
 
 *,
@@ -308,6 +346,10 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+::-webkit-scrollbar {
+  display: none;
 }
 
 body {
@@ -328,36 +370,4 @@ q,
 button,
 span {
   font-family: "Nunito", sans-serif;
-}
-
-.main {
-  width: 100vw;
-  position: relative;
-}
-.main video {
-  transform: scale(1.3) translateY(-50%);
-  width: 100%;
-  position: fixed;
-  top: 115%;
-  left: 0;
-  z-index: -1;
-  mix-blend-mode: screen;
-  object-fit: contain;
-  filter: blur(0.25vw);
-}
-@media (orientation: portrait) {
-  .main video {
-    height: 100vh;
-    top: 140%;
-    left: 40%;
-    transform: scale(2) translateY(-50%);
-  }
-}
-@media (min-aspect-ratio: 2.3333333333) {
-  .main video {
-    height: 100vh;
-    top: 140%;
-    left: 40%;
-    transform: scale(2) translateY(-50%);
-  }
 }

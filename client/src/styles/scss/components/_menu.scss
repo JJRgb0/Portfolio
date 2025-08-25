@@ -27,7 +27,8 @@
 
 .navbar {
     width: 40vw;
-    background-color: $secondary-bg-color;
+    background-color: rgba(42, 42, 41, 0.6);
+    backdrop-filter: blur(calc(5vh + 5vw));
     border-radius: 0 0 4rem 4rem;
     height: calc(2rem + 4vh);
     transition: all ease-out 500ms;
