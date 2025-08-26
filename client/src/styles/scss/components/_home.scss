@@ -1,5 +1,6 @@
 @use '../variables' as *;
 @use '../mixins' as *;
+@use '../animations' as *;
 
 .home {
 
@@ -26,14 +27,21 @@
         -moz-user-select: none;
         user-select: none;
         text-shadow: $sun-glow;
+        animation: opacity 2s ease-out forwards;
     }
 
     h2 {
         font-size: 3.5vw;
+        width: 100%;
         text-align: left;
         color: $tertiary-color;
         -moz-user-select: none;
         user-select: none;
+        border-right: 4px solid;
+        white-space: nowrap;
+        overflow: hidden;
+        animation: typing 2s steps(19),
+            cursor .4s step-end infinite alternate;
     }
 
     .description {
@@ -43,6 +51,7 @@
         left: 4%;
         @include flex_c(flex-start, flex-start);
         gap: 0.75vw 0;
+        animation: from-top 1.5s ease-out;
     }
 
     p {
@@ -50,6 +59,8 @@
         font-style: italic;
         color: $tertiary-color;
         text-align: left;
+        user-select: none;
+        -moz-user-select: none;
     }
 
     button {
@@ -88,6 +99,8 @@
             &:hover {
                 transform: scale(1.1);
             }
+
+            animation: opacity 2s ease-out forwards;
         }
     }
 

@@ -1,13 +1,19 @@
+import gsap from "gsap"
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Download from "../components/icons/download-icon"
 import Github from "../components/icons/github-icon"
 import Linkedin from "../components/icons/linkedin-icon"
+
+gsap.registerPlugin(ScrollTrigger);
 
 function Home() {
 
     return (
         <section className="home">
             <div className="titles">
-                <h2>Full Stack Developer</h2>
+                <span className="h2wrapper">
+                    <h2>Full Stack Developer</h2>
+                </span>
                 <h1>Rubens de Melo Galani</h1>
             </div>
             <div className="description">

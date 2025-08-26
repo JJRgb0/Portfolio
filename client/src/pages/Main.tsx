@@ -1,32 +1,38 @@
 import gsap from "gsap"
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { ScrollSmoother } from 'gsap/ScrollSmoother';
 import Home from "./Home"
 import Projects from "./Projects"
 import { useLayoutEffect, useRef } from "react";
 
-gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
 
 function Main() {
     const sunRef = useRef<HTMLVideoElement>(null);
 
     useLayoutEffect(() => {
 
+        const smoother = ScrollSmoother.create({
+            wrapper: ".main",
+            content: ".content",
+            smooth: 2,
+            smoothTouch: 1
+        })
+
         const mm = gsap.matchMedia();
 
         mm.add("(orientation: landscape) and (max-aspect-ratio: 21/9)", () => {
             return gsap.fromTo(sunRef.current,
                 {
-                    scale: 1.3,
-                    y: '-65%',
-                    x: '0%',
-                    rotation: 0,
+                    y: '-50%',
+                    x: '-50%',
                     filter: 'blur(0.25vw)',
                 },
                 {
-                    scale: 1,
-                    y: '-155%',
-                    x: '-45%',
-                    rotation: 180,
+                    width: '65%',
+                    top: 0,
+                    left: 0,
+                    y: '-60%',
                     filter: 'blur(0px)',
                     ease: 'none',
 
@@ -42,17 +48,17 @@ function Main() {
         mm.add("(orientation: portrait)", () => {
             return gsap.fromTo(sunRef.current,
                 {
-                    scale: 2,
-                    y: '-75%',
-                    x: '0%',
-                    rotation: 0,
+                    width: '80%',
+                    y: '-70%',
+                    x: '-5%',
                     filter: 'blur(0.25vw)',
                 },
                 {
-                    scale: 1,
-                    y: '-163%',
-                    x: '-77%',
-                    rotation: 180,
+                    width: '60%',
+                    top: 0,
+                    left: 0,
+                    y: '-55%',
+                    x: '-40%',
                     filter: 'blur(0px)',
                     ease: 'none',
 
@@ -68,17 +74,16 @@ function Main() {
         mm.add("(min-aspect-ratio: 21/9)", () => {
             return gsap.fromTo(sunRef.current,
                 {
-                    scale: 2,
                     y: '-65%',
-                    x: '0%',
-                    rotation: 0,
+                    x: '-65%',
                     filter: 'blur(0.2vw)',
                 },
                 {
-                    scale: 1,
-                    y: '-165%',
-                    x: '-83%',
-                    rotation: 180,
+                    width: '40%',
+                    top: 0,
+                    left: 0,
+                    y: '-60%',
+                    x: '-40%',
                     filter: 'blur(0px)',
                     ease: 'none',
 
@@ -92,6 +97,7 @@ function Main() {
         })
 
         return () => {
+            smoother.kill();
             mm.revert();
         }
     }, [])
@@ -101,8 +107,10 @@ function Main() {
             <video ref={sunRef} autoPlay muted playsInline loop>
                 <source src="videos/sun.webm" type="video/webm" />
             </video>
-            <Home />
-            <Projects />
+            <div className="content">
+                <Home />
+                <Projects />
+            </div>
         </main>
     )
 }

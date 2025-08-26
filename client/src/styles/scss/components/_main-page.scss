@@ -4,25 +4,23 @@
 .main {
     width: 100vw;
     position: relative;
+    background-color: $bg-color;
     @include flex_c(flex-start, flex-start);
 
     video {
-        width: 100%;
+        width: 55%;
         position: fixed;
-        top: 115%;
-        left: 0;
-        z-index: -1;
+        top: 100%;
+        left: 50%;
+        z-index: 10;
+        pointer-events: none;
         mix-blend-mode: screen;
         object-fit: contain;
 
-        @include portrait {
-            height: 100vh;
-            left: 40%;
-        }
-
         @include min-aspect($ultra-wide) {
-            height: 100vh;
-            left: 40%;
+            width: auto;
+            height: 125vh;
+            left: 100%;
         }
     }
 }

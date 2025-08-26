@@ -1,0 +1,37 @@
+@use 'variables' as *;
+
+@keyframes opacity {
+    0% {
+        opacity: 0;
+        filter: brightness(0);
+    }
+
+    100% {
+        opacity: 1;
+        filter: brightness(1);
+    }
+}
+
+@keyframes cursor {
+    50% {
+        border-color: transparent;
+    }
+}
+
+@keyframes typing {
+    from {
+        width: 0;
+    }
+}
+
+@keyframes from-top {
+    0% {
+        transform: translateY(-20%);
+        opacity: .3;
+    }
+
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}

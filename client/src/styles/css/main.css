@@ -2,33 +2,60 @@
 .main {
   width: 100vw;
   position: relative;
+  background-color: #101010;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
 }
 .main video {
-  width: 100%;
+  width: 55%;
   position: fixed;
-  top: 115%;
-  left: 0;
-  z-index: -1;
+  top: 100%;
+  left: 50%;
+  z-index: 10;
+  pointer-events: none;
   mix-blend-mode: screen;
   object-fit: contain;
 }
-@media (orientation: portrait) {
-  .main video {
-    height: 100vh;
-    left: 40%;
-  }
-}
 @media (min-aspect-ratio: 2.3333333333) {
   .main video {
-    height: 100vh;
-    left: 40%;
+    width: auto;
+    height: 125vh;
+    left: 100%;
   }
 }
 
+@keyframes opacity {
+  0% {
+    opacity: 0;
+    filter: brightness(0);
+  }
+  100% {
+    opacity: 1;
+    filter: brightness(1);
+  }
+}
+@keyframes cursor {
+  50% {
+    border-color: transparent;
+  }
+}
+@keyframes typing {
+  from {
+    width: 0;
+  }
+}
+@keyframes from-top {
+  0% {
+    transform: translateY(-20%);
+    opacity: 0.3;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
 .menu {
   width: auto;
   position: fixed;
@@ -125,6 +152,7 @@
   cursor: pointer;
   -moz-user-select: none;
   user-select: none;
+  animation: opacity 2s ease-out;
 }
 .menu-icon .bar {
   transform-origin: center;
@@ -171,13 +199,19 @@
   -moz-user-select: none;
   user-select: none;
   text-shadow: 0 0 3px rgba(255, 255, 255, 0.8), 0 0 20px rgba(255, 223, 186, 0.7), 0 0 45px rgba(255, 165, 0, 0.5), 0 0 75px rgba(255, 69, 0, 0.3);
+  animation: opacity 2s ease-out forwards;
 }
 .home h2 {
   font-size: 3.5vw;
+  width: 100%;
   text-align: left;
   color: #a8a194;
   -moz-user-select: none;
   user-select: none;
+  border-right: 4px solid;
+  white-space: nowrap;
+  overflow: hidden;
+  animation: typing 2s steps(19), cursor 0.4s step-end infinite alternate;
 }
 .home .description {
   position: absolute;
@@ -189,12 +223,15 @@
   justify-content: flex-start;
   align-items: flex-start;
   gap: 0.75vw 0;
+  animation: from-top 1.5s ease-out;
 }
 .home p {
   font-size: 1.65vw;
   font-style: italic;
   color: #a8a194;
   text-align: left;
+  user-select: none;
+  -moz-user-select: none;
 }
 .home button {
   font-size: 1.65vw;
@@ -228,6 +265,7 @@
   height: calc(6vh + 20px);
   cursor: pointer;
   transition: 300ms ease-out;
+  animation: opacity 2s ease-out forwards;
 }
 .home .links svg:hover {
   transform: scale(1.1);
@@ -350,10 +388,6 @@
 
 ::-webkit-scrollbar {
   display: none;
-}
-
-body {
-  background-color: #101010;
 }
 
 h1,

@@ -1,5 +1,6 @@
 @use '../variables' as *;
 @use '../mixins' as *;
+@use '../animations.scss' as *;
 
 .menu {
     width: auto;
@@ -98,6 +99,7 @@
     cursor: pointer;
     -moz-user-select: none;
     user-select: none;
+    animation: opacity 2s ease-out;
 
     .bar {
         transform-origin: center;
