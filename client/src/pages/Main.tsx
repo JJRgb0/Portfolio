@@ -9,12 +9,14 @@ gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
 
 function Main() {
     const sunRef = useRef<HTMLVideoElement>(null);
+    const wrapperRef = useRef<HTMLElement>(null);
+    const contentRef = useRef<HTMLDivElement>(null);
 
     useLayoutEffect(() => {
 
         const smoother = ScrollSmoother.create({
-            wrapper: ".main",
-            content: ".content",
+            wrapper: wrapperRef.current,
+            content: contentRef.current,
             smooth: 2,
             smoothTouch: 1
         })
@@ -103,11 +105,11 @@ function Main() {
     }, [])
 
     return (
-        <main className="main">
+        <main ref={wrapperRef} className="main">
             <video ref={sunRef} autoPlay muted playsInline loop>
                 <source src="videos/sun.webm" type="video/webm" />
             </video>
-            <div className="content">
+            <div ref={contentRef}>
                 <Home />
                 <Projects />
             </div>
