@@ -17,27 +17,51 @@ function Home() {
     useLayoutEffect(() => {
         const animations: gsap.core.Tween[] = [];
 
-        const titlesAnimation = gsap.to(titlesRef.current, {
-            opacity: 0,
-            y: -20,
-            scale: 0.9,
-            ease: "power2.out",
-            scrollTrigger: {
-                trigger: homeRef.current,
-                start: "top top",
-                end: "bottom 25%",
-                scrub: 1,
-                toggleActions: "play none none reverse"
-            }
-        })
+        gsap.set(titlesRef.current, {
+            opacity: 1,
+            x: '-50%',
+            y: 0,
+            scale: 1
+        });
+
+        gsap.set(descriptionRef.current, {
+            opacity: 1,
+            x: 0,
+            y: 0
+        });
+
+        gsap.set(linksRef.current, {
+            opacity: 1,
+            x: 0
+        });
+
+        const titlesAnimation = gsap.to(titlesRef.current,
+            {
+                opacity: 0,
+                y: -20,
+                scale: 0.9,
+                ease: "power2.out",
+                scrollTrigger: {
+                    trigger: homeRef.current,
+                    start: "top top",
+                    end: "bottom 25%",
+                    scrub: 1,
+                    toggleActions: "play none none reverse",
+                    onRefresh: () => {
+                        if (window.scrollY === 0) {
+                            gsap.set(titlesRef.current, {
+                                opacity: 1,
+                                x: '-50%',
+                                y: 0,
+                                scale: 1
+                            });
+                        }
+                    }
+                }
+            });
         animations.push(titlesAnimation);
 
-        const descriptionAnimation = gsap.fromTo(descriptionRef.current,
-            {
-                opacity: 1,
-                x: 0,
-                y: 0
-            },
+        const descriptionAnimation = gsap.to(descriptionRef.current,
             {
                 opacity: 0,
                 x: -100,
@@ -47,7 +71,16 @@ function Home() {
                     start: "top top",
                     end: "bottom 50%",
                     scrub: 1.5,
-                    toggleActions: "play none none reverse"
+                    toggleActions: "play none none reverse",
+                    onRefresh: () => {
+                        if (window.scrollY === 0) {
+                            gsap.set(descriptionRef.current, {
+                                opacity: 1,
+                                x: 0,
+                                y: 0
+                            });
+                        }
+                    }
                 }
             });
         animations.push(descriptionAnimation);
@@ -55,34 +88,46 @@ function Home() {
         const mm = gsap.matchMedia();
 
         mm.add("(orientation: landscape) and (max-aspect-ratio: 21/9)", () => {
-            const linksAnimation = gsap.to(linksRef.current, {
-                opacity: 0,
-                x: 100,
-                ease: "power2.out",
-                scrollTrigger: {
-                    trigger: homeRef.current,
-                    start: "top top",
-                    end: "bottom 50%",
-                    scrub: 2,
-                    toggleActions: "play none none reverse"
-                }
-            });
+            const linksAnimation = gsap.to(linksRef.current,
+                {
+                    opacity: 0,
+                    x: 100,
+                    ease: "power2.out",
+                    scrollTrigger: {
+                        trigger: homeRef.current,
+                        start: "top top",
+                        end: "bottom 50%",
+                        scrub: 2,
+                        toggleActions: "play none none reverse",
+                        onRefresh: () => {
+                            if (window.scrollY === 0) {
+                                gsap.set(linksRef.current, { opacity: 1, x: 0 });
+                            }
+                        }
+                    }
+                });
             animations.push(linksAnimation);
         })
 
         mm.add("(orientation: portrait), (min-aspect-ratio: 21/9)", () => {
-            const linksAnimation = gsap.to(linksRef.current, {
-                opacity: 0,
-                x: -100,
-                ease: "power2.out",
-                scrollTrigger: {
-                    trigger: homeRef.current,
-                    start: "top top",
-                    end: "bottom 50%",
-                    scrub: 2,
-                    toggleActions: "play none none reverse"
-                }
-            });
+            const linksAnimation = gsap.to(linksRef.current,
+                {
+                    opacity: 0,
+                    x: -100,
+                    ease: "power2.out",
+                    scrollTrigger: {
+                        trigger: homeRef.current,
+                        start: "top top",
+                        end: "bottom 50%",
+                        scrub: 2,
+                        toggleActions: "play none none reverse",
+                        onRefresh: () => {
+                            if (window.scrollY === 0) {
+                                gsap.set(linksRef.current, { opacity: 1, x: 0 });
+                            }
+                        }
+                    }
+                });
             animations.push(linksAnimation);
         })
 

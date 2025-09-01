@@ -2,11 +2,13 @@
 .main {
   width: 100vw;
   position: relative;
-  background-color: #101010;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
+  background-color: #000000;
+  background-image: url("images/stars.jpg");
+  background-size: cover;
 }
 .main video {
   width: 55%;
@@ -184,7 +186,6 @@
   position: absolute;
   top: 10%;
   left: 50%;
-  transform: translateX(-50%);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -238,7 +239,7 @@
   background-color: #f2e7d5;
   padding: 0.7vw 1.25vw 0.7vw 1.25vw;
   border-radius: 0.8vw;
-  color: #101010;
+  color: #000000;
   border: none;
   text-transform: uppercase;
   font-weight: bold;
@@ -371,11 +372,81 @@
   }
 }
 
+.about {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  padding-right: 4%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 1rem 0;
+}
+.about h2 {
+  font-size: 5vw;
+  color: #f2e7d5;
+  text-shadow: 0 0 3px rgba(255, 255, 255, 0.8), 0 0 20px rgba(255, 223, 186, 0.7), 0 0 45px rgba(255, 165, 0, 0.5), 0 0 75px rgba(255, 69, 0, 0.3);
+}
+.about p {
+  width: 40%;
+  color: #a8a194;
+  text-align: right;
+  font-size: 1.25vw;
+}
+.about img {
+  position: absolute;
+  object-fit: contain;
+  z-index: -1;
+  left: 80%;
+  top: 25%;
+  transform: translate(-50%, -50%);
+  mix-blend-mode: screen;
+}
+@media (orientation: portrait) {
+  .about {
+    padding-right: 0;
+    padding-top: 30%;
+    justify-content: flex-start;
+    align-items: center;
+  }
+  .about h2 {
+    font-size: calc(3vw + 3vh);
+    text-align: center;
+  }
+  .about p {
+    width: 60%;
+    font-size: calc(1vh + 0.9vw);
+    text-align: center;
+  }
+  .about img {
+    left: 20%;
+    top: 10%;
+  }
+}
+@media (max-aspect-ratio: 0.6428571429) {
+  .about {
+    padding-top: 50%;
+    gap: 0.5rem 0;
+  }
+  .about h2 {
+    font-size: calc(3vw + 4vh);
+  }
+  .about p {
+    width: 85%;
+    font-size: calc(1.25vh + 0.5vw);
+  }
+}
+
+.knowledge {
+  width: 100%;
+  height: 100vh;
+}
+
 .projects {
   position: relative;
   width: 100%;
-  height: 300vh;
-  border: 2px solid red;
+  height: 200vh;
 }
 
 *,

@@ -4,8 +4,10 @@
 .main {
     width: 100vw;
     position: relative;
-    background-color: $bg-color;
     @include flex_c(flex-start, flex-start);
+    background-color: $bg-color;
+    background-image: url("images/stars.jpg");
+    background-size: cover;
 
     video {
         width: 55%;

@@ -4,6 +4,8 @@ import { ScrollSmoother } from 'gsap/ScrollSmoother';
 import Home from "./Home"
 import Projects from "./Projects"
 import { useLayoutEffect, useRef } from "react";
+import About from "./About";
+import Knowledge from "./Knowledge";
 
 gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
 
@@ -11,13 +13,14 @@ function Main() {
     const sunRef = useRef<HTMLVideoElement>(null);
     const wrapperRef = useRef<HTMLElement>(null);
     const contentRef = useRef<HTMLDivElement>(null);
+    const triggerRef = useRef<HTMLElement>(null);
 
     useLayoutEffect(() => {
 
         const smoother = ScrollSmoother.create({
             wrapper: wrapperRef.current,
             content: contentRef.current,
-            smooth: 2,
+            smooth: 1.75,
             smoothTouch: 1
         })
 
@@ -32,16 +35,16 @@ function Main() {
                 },
                 {
                     width: '65%',
-                    top: 0,
+                    top: '50%',
                     left: 0,
-                    y: '-60%',
+                    y: '-50%',
                     filter: 'blur(0px)',
                     ease: 'none',
 
                     scrollTrigger: {
-                        trigger: ".projects",
+                        trigger: triggerRef.current,
                         start: 'top bottom',
-                        end: 'top+=30% bottom',
+                        end: 'top+=75% bottom',
                         scrub: true,
                     }
                 })
@@ -56,18 +59,16 @@ function Main() {
                     filter: 'blur(0.25vw)',
                 },
                 {
-                    width: '60%',
-                    top: 0,
-                    left: 0,
-                    y: '-55%',
-                    x: '-40%',
+                    width: '90%',
+                    y: '-50%',
+                    x: '-50%',
                     filter: 'blur(0px)',
                     ease: 'none',
 
                     scrollTrigger: {
-                        trigger: ".projects",
+                        trigger: triggerRef.current,
                         start: 'top bottom',
-                        end: 'top+=30% bottom',
+                        end: 'top+=75% bottom',
                         scrub: true,
                     }
                 })
@@ -81,18 +82,18 @@ function Main() {
                     filter: 'blur(0.2vw)',
                 },
                 {
-                    width: '40%',
-                    top: 0,
+                    width: '65%',
+                    top: '50%',
                     left: 0,
-                    y: '-60%',
-                    x: '-40%',
+                    y: '-50%',
+                    x: '-50%',
                     filter: 'blur(0px)',
                     ease: 'none',
 
                     scrollTrigger: {
-                        trigger: ".projects",
+                        trigger: triggerRef.current,
                         start: 'top bottom',
-                        end: 'top+=30% bottom',
+                        end: 'top+=75% bottom',
                         scrub: true,
                     }
                 })
@@ -111,6 +112,8 @@ function Main() {
             </video>
             <div ref={contentRef}>
                 <Home />
+                <About ref={triggerRef} />
+                <Knowledge />
                 <Projects />
             </div>
         </main>

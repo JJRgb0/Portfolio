@@ -24,6 +24,12 @@
     }
 }
 
+@mixin max-aspect($aspect-ratio) {
+    @media(max-aspect-ratio: $aspect-ratio) {
+        @content;
+    }
+}
+
 @mixin portrait {
     @media(orientation: portrait) {
         @content;
