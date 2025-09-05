@@ -3,26 +3,17 @@
 
 .main {
     width: 100vw;
+    height: auto;
     position: relative;
-    @include flex_c(flex-start, flex-start);
     background-color: $bg-color;
     background-image: url("images/stars.jpg");
     background-size: cover;
 
     video {
-        width: 55%;
         position: fixed;
-        top: 100%;
-        left: 50%;
         z-index: 10;
         pointer-events: none;
         mix-blend-mode: screen;
         object-fit: contain;
-
-        @include min-aspect($ultra-wide) {
-            width: auto;
-            height: 125vh;
-            left: 100%;
-        }
     }
 }
