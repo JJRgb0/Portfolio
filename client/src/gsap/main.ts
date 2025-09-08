@@ -46,7 +46,31 @@ function mainGSAP({ wrapperRef, contentRef, sunRef, aboutRef, knowledgeRef }: { 
             })
 
         animations.push(firstAnim);
-        return { firstAnim };
+
+        const secondAnim = gsap.to(sunRef.current,
+            {
+                top: '50%',
+                y: '-50%',
+                width: '15%',
+                left: '50%',
+                x: '-50%',
+                ease: 'none',
+                overwrite: 'auto',
+                immediateRender: false,
+                scrollTrigger: {
+                    trigger: knowledgeRef.current,
+                    start: 'top top',
+                    end: 'bottom+=50% bottom',
+                    scrub: true,
+                    invalidateOnRefresh: true,
+                    refreshPriority: 1,
+                }
+            }
+        )
+
+        animations.push(secondAnim);
+
+        return { firstAnim, secondAnim };
     })
 
     mm.add("(orientation: portrait)", () => {
@@ -74,7 +98,31 @@ function mainGSAP({ wrapperRef, contentRef, sunRef, aboutRef, knowledgeRef }: { 
             })
 
         animations.push(firstAnim);
-        return { firstAnim };
+
+        const secondAnim = gsap.to(sunRef.current,
+            {
+                top: '50%',
+                y: '-50%',
+                width: '22.5%',
+                left: '50%',
+                x: '-50%',
+                ease: 'none',
+                overwrite: 'auto',
+                immediateRender: false,
+                scrollTrigger: {
+                    trigger: knowledgeRef.current,
+                    start: 'top top',
+                    end: 'bottom+=50% bottom',
+                    scrub: true,
+                    invalidateOnRefresh: true,
+                    refreshPriority: 1,
+                }
+            }
+        )
+
+        animations.push(secondAnim);
+
+        return { firstAnim, secondAnim };
     })
 
     mm.add("(min-aspect-ratio: 21/9)", () => {
@@ -105,31 +153,31 @@ function mainGSAP({ wrapperRef, contentRef, sunRef, aboutRef, knowledgeRef }: { 
             })
 
         animations.push(firstAnim);
-        return { firstAnim };
-    })
 
-    const secondAnim = gsap.to(sunRef.current,
-        {
-            top: '50%',
-            y: '-50%',
-            width: '15%',
-            left: '50%',
-            x: '-50%',
-            ease: 'none',
-            overwrite: 'auto',
-            immediateRender: false,
-            scrollTrigger: {
-                trigger: knowledgeRef.current,
-                start: 'top top+=50%',
-                end: 'bottom bottom',
-                scrub: true,
-                invalidateOnRefresh: true,
-                refreshPriority: 1
+        const secondAnim = gsap.to(sunRef.current,
+            {
+                top: '50%',
+                y: '-50%',
+                width: '8%',
+                left: '50%',
+                x: '-50%',
+                ease: 'none',
+                overwrite: 'auto',
+                immediateRender: false,
+                scrollTrigger: {
+                    trigger: knowledgeRef.current,
+                    start: 'top top',
+                    end: 'bottom+=50% bottom',
+                    scrub: true,
+                    invalidateOnRefresh: true,
+                    refreshPriority: 1,
+                }
             }
-        }
-    )
+        )
 
-    animations.push(secondAnim)
+        animations.push(secondAnim);
+        return { firstAnim, secondAnim };
+    })
 
     return () => {
         animations.forEach(anim => {

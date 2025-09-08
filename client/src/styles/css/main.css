@@ -363,7 +363,6 @@
   position: relative;
   width: 100%;
   height: 100vh;
-  border: solid green 2px;
 }
 .about div {
   padding-right: 4%;
@@ -394,6 +393,7 @@
   top: 25%;
   transform: translate(-50%, -50%);
   mix-blend-mode: screen;
+  pointer-events: none;
 }
 @media (orientation: portrait) {
   .about div {
@@ -431,19 +431,138 @@
 }
 
 .knowledge {
+  position: relative;
   width: 100%;
   height: 100vh;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  border: solid blue 2px;
 }
-.knowledge .frontend {
-  width: 25%;
+.knowledge .title {
+  position: absolute;
+  top: 15%;
+  left: 5%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 1vw 0;
+}
+.knowledge .title h2 {
+  font-size: 5vw;
+  color: #f2e7d5;
+  text-shadow: 0 0 3px rgba(255, 255, 255, 0.8), 0 0 20px rgba(255, 223, 186, 0.7), 0 0 45px rgba(255, 165, 0, 0.5), 0 0 75px rgba(255, 69, 0, 0.3);
+}
+.knowledge .title button {
+  font-size: 1.25vw;
+  background-color: #f2e7d5;
+  padding: 0.5vw 1vw 0.5vw 1vw;
+  border-radius: 0.4vw;
+  color: #000000;
+  text-transform: capitalize;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 300ms ease-in;
+}
+.knowledge .title button:hover {
+  background-color: #2b2a29;
+  color: #f2e7d5;
+  text-shadow: 0 0 3px rgba(255, 255, 255, 0.8), 0 0 20px rgba(255, 223, 186, 0.7), 0 0 45px rgba(255, 165, 0, 0.5), 0 0 75px rgba(255, 69, 0, 0.3);
+}
+.knowledge .frontend,
+.knowledge .backend,
+.knowledge .devops {
+  position: absolute;
   aspect-ratio: 1;
   border-radius: 100%;
-  border: solid red 1px;
+}
+.knowledge .frontend > *,
+.knowledge .backend > *,
+.knowledge .devops > * {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 2.75vw;
+  aspect-ratio: 1;
+}
+.knowledge .frontend {
+  z-index: 1;
+  width: 35%;
+  border: solid 1px #3F3F3F;
+}
+.knowledge .backend {
+  z-index: 2;
+  width: 27.5%;
+  border: solid 1px #C0A791;
+}
+.knowledge .backend::after {
+  content: "";
+  position: relative;
+  z-index: -1;
+  display: block;
+  border-radius: 100%;
+  width: 100%;
+  aspect-ratio: 1;
+  background-color: rgba(29, 29, 29, 0.6784313725);
+  mask: radial-gradient(rgba(0, 0, 0, 0) 10vw, #000 0);
+}
+.knowledge .devops {
+  z-index: 3;
+  width: 20%;
+  border: solid 1px #4F4F4F;
+  background: transparent;
+}
+@media (orientation: portrait) {
+  .knowledge .title {
+    gap: 1vh 0;
+  }
+  .knowledge .title h2 {
+    font-size: calc(3vw + 3vh);
+  }
+  .knowledge .title button {
+    font-size: calc(1vh + 1.75vw);
+    border-radius: calc(0.5vw + 0.5vh);
+    padding: 0.85vw 1.5vw 0.85vw 1.5vw;
+  }
+  .knowledge .frontend,
+  .knowledge .backend,
+  .knowledge .devops {
+    transform: scale(1.5);
+  }
+  .knowledge .frontend > *,
+  .knowledge .backend > *,
+  .knowledge .devops > * {
+    width: calc(1.5vw + 1vh);
+  }
+}
+@media (max-aspect-ratio: 0.6428571429) {
+  .knowledge .titles h2 {
+    font-size: calc(3vw + 4vh);
+  }
+  .knowledge .frontend,
+  .knowledge .backend,
+  .knowledge .devops {
+    transform: scale(1.9);
+  }
+  .knowledge .frontend > *,
+  .knowledge .backend > *,
+  .knowledge .devops > * {
+    width: calc(1vw + 1vh);
+  }
+}
+@media (min-aspect-ratio: 2.3333333333) {
+  .knowledge .frontend,
+  .knowledge .backend,
+  .knowledge .devops {
+    transform: scale(0.65);
+  }
+  .knowledge .frontend > *,
+  .knowledge .backend > *,
+  .knowledge .devops > * {
+    width: 2.5vw;
+  }
 }
 
 .projects {

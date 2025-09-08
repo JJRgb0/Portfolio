@@ -12,15 +12,17 @@ function Main() {
     const aboutRef = useRef<HTMLElement>(null);
     const knowledgeRef = useRef<HTMLElement>(null);
 
-    useLayoutEffect(() =>
-        mainGSAP({
-            wrapperRef,
-            contentRef,
-            sunRef,
-            aboutRef,
-            knowledgeRef
-        })
-        , [])
+    useLayoutEffect(() => {
+        return () => {
+            mainGSAP({
+                wrapperRef,
+                contentRef,
+                sunRef,
+                aboutRef,
+                knowledgeRef
+            })
+        }
+    }, [])
 
     return (
         <main ref={wrapperRef} className="main">
