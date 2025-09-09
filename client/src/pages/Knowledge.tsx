@@ -1,7 +1,7 @@
-import { RefObject, useCallback, useEffect, useLayoutEffect, useRef } from "react";
+import { RefObject, Dispatch, SetStateAction, useCallback, useEffect, useLayoutEffect, useRef } from "react";
 import { knowledgeGSAP } from "../gsap/knowledge";
 
-function Knowledge({ ref }: { ref: RefObject<HTMLElement | null> }) {
+function Knowledge({ ref, openAllSkills }: { ref: RefObject<HTMLElement | null>; openAllSkills: Dispatch<SetStateAction<boolean>> }) {
 
     const c = useRef(0);
 
@@ -50,7 +50,7 @@ function Knowledge({ ref }: { ref: RefObject<HTMLElement | null> }) {
         <section ref={ref} className="knowledge">
             <div ref={h2Ref} className="title">
                 <h2>My skills</h2>
-                <button>See all skills</button>
+                <button onClick={() => openAllSkills(true)}>See all skills</button>
             </div>
             <div ref={frontendRef} className="frontend">
 

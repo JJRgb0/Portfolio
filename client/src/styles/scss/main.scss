@@ -2,6 +2,7 @@
 @use 'mixins' as *;
 @use './components/main-page';
 @use './components/menu';
+@use './components/all-skills';
 @use './components/home';
 @use './components/about';
 @use './components/knowledge';
@@ -33,6 +34,7 @@ h6 {
 p,
 q,
 button,
-span {
+span,
+li {
     font-family: $body-font;
 }
