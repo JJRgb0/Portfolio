@@ -6,6 +6,7 @@ import Knowledge from "./Knowledge";
 import { mainGSAP } from "../gsap/main";
 import Navbar from "../components/Navbar";
 import AllSkills from "../components/All-Skills";
+import Contact from "./Contact";
 
 function Main() {
 
@@ -14,6 +15,7 @@ function Main() {
     const contentRef = useRef<HTMLDivElement>(null);
     const aboutRef = useRef<HTMLElement>(null);
     const knowledgeRef = useRef<HTMLElement>(null);
+    const projectsRef = useRef<HTMLElement>(null);
 
     const [isAllSkills, setIsAllSkills] = useState(false);
 
@@ -24,7 +26,8 @@ function Main() {
                 contentRef,
                 sunRef,
                 aboutRef,
-                knowledgeRef
+                knowledgeRef,
+                projectsRef
             })
         }
     }, [])
@@ -40,7 +43,8 @@ function Main() {
                 <Home />
                 <About ref={aboutRef} />
                 <Knowledge ref={knowledgeRef} openAllSkills={setIsAllSkills} />
-                <Projects />
+                <Projects ref={projectsRef} />
+                <Contact />
             </div>
         </main>
     )

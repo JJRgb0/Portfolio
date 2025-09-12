@@ -5,7 +5,7 @@ import { ScrollSmoother } from 'gsap/ScrollSmoother';
 
 gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
 
-function mainGSAP({ wrapperRef, contentRef, sunRef, aboutRef, knowledgeRef }: { wrapperRef: RefObject<HTMLElement | null>; contentRef: RefObject<HTMLDivElement | null>; sunRef: RefObject<HTMLVideoElement | null>; aboutRef: RefObject<HTMLElement | null>; knowledgeRef: RefObject<HTMLElement | null> }) {
+function mainGSAP({ wrapperRef, contentRef, sunRef, aboutRef, knowledgeRef, projectsRef }: { wrapperRef: RefObject<HTMLElement | null>; contentRef: RefObject<HTMLDivElement | null>; sunRef: RefObject<HTMLVideoElement | null>; aboutRef: RefObject<HTMLElement | null>; knowledgeRef: RefObject<HTMLElement | null>; projectsRef: RefObject<HTMLElement | null> }) {
 
     const smoother = ScrollSmoother.create({
         wrapper: wrapperRef.current,
@@ -41,7 +41,7 @@ function mainGSAP({ wrapperRef, contentRef, sunRef, aboutRef, knowledgeRef }: { 
                     end: 'top+=75% bottom',
                     scrub: true,
                     invalidateOnRefresh: true,
-                    refreshPriority: 2
+                    refreshPriority: 3
                 }
             })
 
@@ -63,7 +63,7 @@ function mainGSAP({ wrapperRef, contentRef, sunRef, aboutRef, knowledgeRef }: { 
                     end: 'bottom+=50% bottom',
                     scrub: true,
                     invalidateOnRefresh: true,
-                    refreshPriority: 1,
+                    refreshPriority: 2,
                 }
             }
         )
@@ -178,6 +178,27 @@ function mainGSAP({ wrapperRef, contentRef, sunRef, aboutRef, knowledgeRef }: { 
         animations.push(secondAnim);
         return { firstAnim, secondAnim };
     })
+
+    const thirdAnim = gsap.to(sunRef.current,
+        {
+            top: 0,
+            left: 0,
+            width: '45%',
+            ease: 'none',
+            overwrite: 'auto',
+            immediateRender: false,
+            scrollTrigger: {
+                trigger: projectsRef.current,
+                start: 'top bottom',
+                end: 'top top',
+                scrub: true,
+                invalidateOnRefresh: true,
+                refreshPriority: 0,
+            }
+        }
+    )
+
+    animations.push(thirdAnim);
 
     return () => {
         animations.forEach(anim => {
