@@ -183,6 +183,7 @@ function mainGSAP({ wrapperRef, contentRef, sunRef, aboutRef, knowledgeRef, proj
         {
             top: 0,
             left: 0,
+            x: '-40%',
             width: '45%',
             ease: 'none',
             overwrite: 'auto',

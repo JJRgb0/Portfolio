@@ -49,8 +49,7 @@ function projectsGSAP({ ref, imgRef, h2Ref, contentRef }: { ref: RefObject<HTMLE
                 x: 0,
                 opacity: 1,
                 duration: 1.5
-            },
-            "<"
+            }
         )
 
         tl.to({}, { duration: 3 });
@@ -63,6 +62,29 @@ function projectsGSAP({ ref, imgRef, h2Ref, contentRef }: { ref: RefObject<HTMLE
                 opacity: 0,
                 duration: 1,
             })
+
+        tl.fromTo(h2Ref.current,
+            {
+                opacity: 1,
+                x: 0
+            },
+            {
+                opacity: 0,
+                x: '-100%',
+                duration: 1.5
+            },
+            "<"
+        )
+
+        tl.fromTo(contentRef.current,
+            {
+                opacity: 1,
+            },
+            {
+                opacity: 0,
+                duration: 1.5
+            }
+        )
     }, ref.current!)
 
     return () => ctx.revert();

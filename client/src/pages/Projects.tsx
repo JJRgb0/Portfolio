@@ -28,8 +28,9 @@ function Projects({ ref }: { ref: RefObject<HTMLElement | null> }) {
             <img ref={imgRef} src="images/galaxy.jpg" />
             <h2 ref={h2Ref}>My works</h2>
             <div ref={contentRef} className="content">
-                <Project name="kdlux" />
-                <Project name="golden-ace" />
+                <Project name="kdLux" techs={['NextJS', 'Prisma', 'TailwindCSS']} description="A jewelry e-commerce" imgSrc="images/kdlux.webp" />
+                <Project name="Golden-Ace" techs={['ThreeJS', 'React', 'TailwindCSS']} description="A classic arcade" imgSrc="images/golden-ace.webp" />
+                <Project name="Petsart" techs={['Vite', 'TailwindCSS']} description="An art portfolio" imgSrc="images/petsart.webp" />
             </div>
         </section>
     )
