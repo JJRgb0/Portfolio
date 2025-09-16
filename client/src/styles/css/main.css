@@ -657,11 +657,12 @@
 }
 .projects h2 {
   position: absolute;
-  top: 60%;
+  top: 70%;
   left: 2%;
   font-size: 5vw;
   color: #f2e7d5;
   text-shadow: 0 0 3px rgba(255, 255, 255, 0.8), 0 0 20px rgba(255, 223, 186, 0.7), 0 0 45px rgba(255, 165, 0, 0.5), 0 0 75px rgba(255, 69, 0, 0.3);
+  white-space: nowrap;
 }
 .projects > img {
   width: 100%;
@@ -673,17 +674,43 @@
 }
 .projects .content {
   position: relative;
-  top: 50%;
+  top: 51%;
   left: 48%;
   transform: translateY(-50%);
   width: 50%;
-  height: 75%;
+  height: auto;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: 1fr 1fr;
-  gap: 20px;
+  gap: 3%;
   justify-content: center;
   align-content: center;
+}
+@media (orientation: portrait) {
+  .projects h2 {
+    top: 87.5%;
+    left: 50%;
+    font-size: calc(3vw + 3vh);
+  }
+  .projects .content {
+    transform: translate(-50%, -50%);
+    left: 50%;
+    width: 80%;
+  }
+}
+@media (min-aspect-ratio: 2) {
+  .projects .content {
+    top: 53%;
+  }
+}
+@media (min-aspect-ratio: 2.3333333333) {
+  .projects h2 {
+    top: 85%;
+  }
+  .projects .content {
+    top: 51%;
+    left: 63%;
+    width: 35%;
+  }
 }
 
 .project {
@@ -691,14 +718,13 @@
   backdrop-filter: blur(calc(0.25vh + 0.25vw));
   border: 3px solid #DFC691;
   box-shadow: 0 0 3px rgba(255, 255, 255, 0.8), 0 0 10px rgba(255, 223, 186, 0.7), 0 0 20px rgba(255, 165, 0, 0.5), 0 0 30px rgba(255, 69, 0, 0.3);
-  border-radius: 2vw;
+  border-radius: calc(1vw + 1vh);
   padding: 2% 5% 2% 5%;
-  height: 100%;
-  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: flex-start;
+  gap: 20px 0;
 }
 .project .techs {
   display: flex;
@@ -709,7 +735,7 @@
 }
 .project .techs span {
   color: #a8a194;
-  font-size: 0.75vw;
+  font-size: calc(0.65vw + 0.25vh);
   font-weight: 600;
 }
 .project img {
@@ -721,19 +747,19 @@
   box-shadow: 0px 0px 15px #DFC691;
 }
 .project h3 {
-  font-size: 1.75vw;
+  font-size: calc(1.25vw + 0.5vh);
   color: #f2e7d5;
 }
 .project p {
   color: #a8a194;
-  font-size: 1vw;
+  font-size: calc(0.75vw + 0.5vh);
 }
 .project button {
   color: transparent;
   background: linear-gradient(to right, #A98A62, #DFC691) text;
   text-transform: capitalize;
   padding: 6px 15px 6px 15px;
-  font-size: 1.25vw;
+  font-size: calc(1vw + 0.5vh);
   font-weight: bold;
   position: relative;
   border: none;
@@ -761,6 +787,40 @@
 }
 .project:last-child {
   grid-column: 2/4;
+}
+@media (orientation: portrait) {
+  .project .techs span {
+    font-size: calc(0.6vw + 0.6vh);
+  }
+  .project img {
+    width: 75%;
+  }
+  .project h3 {
+    font-size: calc(1.5vw + 0.75vh);
+  }
+  .project p {
+    font-size: calc(0.75vw + 0.75vh);
+  }
+  .project button {
+    font-size: calc(1vw + 0.75vh);
+  }
+}
+@media (min-aspect-ratio: 2.3333333333) {
+  .project .techs span {
+    font-size: calc(0.5vw + 0.2vh);
+  }
+  .project img {
+    width: 65%;
+  }
+  .project h3 {
+    font-size: calc(1vw + 0.25vh);
+  }
+  .project p {
+    font-size: calc(0.5vw + 0.5vh);
+  }
+  .project button {
+    font-size: calc(0.75vw + 0.5vh);
+  }
 }
 
 .contact {

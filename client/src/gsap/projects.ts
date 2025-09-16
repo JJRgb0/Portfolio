@@ -6,6 +6,8 @@ gsap.registerPlugin(ScrollTrigger);
 
 function projectsGSAP({ ref, imgRef, h2Ref, contentRef }: { ref: RefObject<HTMLElement | null>; imgRef: RefObject<HTMLImageElement | null>; h2Ref: RefObject<HTMLHeadingElement | null>; contentRef: RefObject<HTMLDivElement | null> }) {
     const ctx = gsap.context(() => {
+        const mm = gsap.matchMedia();
+
         const tl = gsap.timeline({
             scrollTrigger: {
                 trigger: ref.current,
@@ -27,18 +29,50 @@ function projectsGSAP({ ref, imgRef, h2Ref, contentRef }: { ref: RefObject<HTMLE
                 duration: 1,
             })
 
-        tl.fromTo(h2Ref.current,
-            {
-                opacity: 0,
-                x: '-100%'
-            },
-            {
-                opacity: 1,
-                x: 0,
-                duration: 1.5
-            },
-            "<"
-        )
+        mm.add("(orientation: landscape) and (max-aspect-ratio: 21/9)", () => {
+            tl.fromTo(h2Ref.current,
+                {
+                    opacity: 0,
+                    x: '-100%'
+                },
+                {
+                    opacity: 1,
+                    x: 0,
+                    duration: 1.5
+                },
+                "<"
+            )
+        })
+
+        mm.add("(orientation: portrait)", () => {
+            tl.fromTo(h2Ref.current,
+                {
+                    opacity: 0,
+                    x: '-150%'
+                },
+                {
+                    opacity: 1,
+                    x: '-50%',
+                    duration: 1.5
+                },
+                "<"
+            )
+        })
+        mm.add("(min-aspect-ratio: 21/9)", () => {
+            tl.fromTo(h2Ref.current,
+                {
+                    opacity: 0,
+                    x: '-100%',
+                    y: '-50%'
+                },
+                {
+                    opacity: 1,
+                    x: 0,
+                    duration: 1.5
+                },
+                "<"
+            )
+        })
 
         tl.fromTo(contentRef.current,
             {
@@ -63,18 +97,50 @@ function projectsGSAP({ ref, imgRef, h2Ref, contentRef }: { ref: RefObject<HTMLE
                 duration: 1,
             })
 
-        tl.fromTo(h2Ref.current,
-            {
-                opacity: 1,
-                x: 0
-            },
-            {
-                opacity: 0,
-                x: '-100%',
-                duration: 1.5
-            },
-            "<"
-        )
+        mm.add("(orientation: landscape) and (max-aspect-ratio: 21/9)", () => {
+            tl.fromTo(h2Ref.current,
+                {
+                    opacity: 1,
+                    x: 0
+                },
+                {
+                    opacity: 0,
+                    x: '-100%',
+                    duration: 1.5
+                },
+                "<"
+            )
+        })
+
+        mm.add("(orientation: portrait)", () => {
+            tl.fromTo(h2Ref.current,
+                {
+                    opacity: 1,
+                    x: '-50%'
+                },
+                {
+                    opacity: 0,
+                    x: '-150%',
+                    duration: 1.5
+                },
+                "<"
+            )
+        })
+
+        mm.add("(min-aspect-ratio: 21/9)", () => {
+            tl.fromTo(h2Ref.current,
+                {
+                    opacity: 1,
+                    x: 0,
+                },
+                {
+                    opacity: 0,
+                    x: '-100%',
+                    duration: 1.5
+                },
+                "<"
+            )
+        })
 
         tl.fromTo(contentRef.current,
             {
