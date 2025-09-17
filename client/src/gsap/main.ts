@@ -5,14 +5,16 @@ import { ScrollSmoother } from 'gsap/ScrollSmoother';
 
 gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
 
-function mainGSAP({ wrapperRef, contentRef, sunRef, aboutRef, knowledgeRef, projectsRef }: { wrapperRef: RefObject<HTMLElement | null>; contentRef: RefObject<HTMLDivElement | null>; sunRef: RefObject<HTMLVideoElement | null>; aboutRef: RefObject<HTMLElement | null>; knowledgeRef: RefObject<HTMLElement | null>; projectsRef: RefObject<HTMLElement | null> }) {
+function mainGSAP({ wrapperRef, contentRef, sunRef, aboutRef, knowledgeRef, projectsRef, contactRef }: { wrapperRef: RefObject<HTMLElement | null>; contentRef: RefObject<HTMLDivElement | null>; sunRef: RefObject<HTMLVideoElement | null>; aboutRef: RefObject<HTMLElement | null>; knowledgeRef: RefObject<HTMLElement | null>; projectsRef: RefObject<HTMLElement | null>; contactRef: RefObject<HTMLElement | null> }) {
 
     const smoother = ScrollSmoother.create({
         wrapper: wrapperRef.current,
         content: contentRef.current,
         smooth: 1.75,
-        smoothTouch: 1
+        smoothTouch: 1,
     })
+
+    //smoother.scrollTo(0, false);
 
     const mm = gsap.matchMedia();
     const animations: (gsap.core.Timeline | gsap.core.Tween)[] = [];
@@ -41,7 +43,7 @@ function mainGSAP({ wrapperRef, contentRef, sunRef, aboutRef, knowledgeRef, proj
                     end: 'top+=75% bottom',
                     scrub: true,
                     invalidateOnRefresh: true,
-                    refreshPriority: 3
+                    refreshPriority: 2
                 }
             })
 
@@ -63,7 +65,7 @@ function mainGSAP({ wrapperRef, contentRef, sunRef, aboutRef, knowledgeRef, proj
                     end: 'bottom+=50% bottom',
                     scrub: true,
                     invalidateOnRefresh: true,
-                    refreshPriority: 2,
+                    refreshPriority: 1,
                 }
             }
         )
@@ -94,6 +96,7 @@ function mainGSAP({ wrapperRef, contentRef, sunRef, aboutRef, knowledgeRef, proj
                     start: 'top bottom',
                     end: 'top+=75% bottom',
                     scrub: true,
+                    refreshPriority: 2
                 }
             })
 
@@ -149,6 +152,7 @@ function mainGSAP({ wrapperRef, contentRef, sunRef, aboutRef, knowledgeRef, proj
                     start: 'top bottom',
                     end: 'top+=75% bottom',
                     scrub: true,
+                    refreshPriority: 2
                 }
             })
 
@@ -194,12 +198,35 @@ function mainGSAP({ wrapperRef, contentRef, sunRef, aboutRef, knowledgeRef, proj
                 end: 'top top',
                 scrub: true,
                 invalidateOnRefresh: true,
-                refreshPriority: 0,
+                refreshPriority: -1,
             }
         }
     )
 
     animations.push(thirdAnim);
+
+    const fourthAnim = gsap.to(sunRef.current,
+        {
+            zIndex: 0,
+            top: '42%',
+            left: '10%',
+            y: '-50%',
+            x: 0,
+            width: '26%',
+            ease: 'none',
+            overwrite: 'auto',
+            immediateRender: false,
+            scrollTrigger: {
+                trigger: contactRef.current,
+                start: 'top bottom',
+                end: 'top top',
+                scrub: true,
+                invalidateOnRefresh: true,
+            }
+        }
+    )
+
+    animations.push(fourthAnim);
 
     return () => {
         animations.forEach(anim => {

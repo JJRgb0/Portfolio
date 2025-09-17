@@ -7,7 +7,7 @@ export default function Project({ name, techs, imgSrc, description }: { name: st
                 }
             </div>
             <img src={imgSrc} />
-            <div className="nad">
+            <div>
                 <h3>{name}</h3>
                 <p>{description}</p>
             </div>

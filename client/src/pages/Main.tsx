@@ -16,6 +16,7 @@ function Main() {
     const aboutRef = useRef<HTMLElement>(null);
     const knowledgeRef = useRef<HTMLElement>(null);
     const projectsRef = useRef<HTMLElement>(null);
+    const contactRef = useRef<HTMLElement>(null);
 
     const [isAllSkills, setIsAllSkills] = useState(false);
 
@@ -27,7 +28,8 @@ function Main() {
                 sunRef,
                 aboutRef,
                 knowledgeRef,
-                projectsRef
+                projectsRef,
+                contactRef
             })
         }
     }, [])
@@ -44,7 +46,7 @@ function Main() {
                 <About ref={aboutRef} />
                 <Knowledge ref={knowledgeRef} openAllSkills={setIsAllSkills} />
                 <Projects ref={projectsRef} />
-                <Contact />
+                <Contact ref={contactRef} />
             </div>
         </main>
     )

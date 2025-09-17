@@ -826,6 +826,120 @@
 .contact {
   width: 100%;
   height: 100vh;
+  padding: 7% 5% 7% 5%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.contact .cta {
+  box-shadow: 0 0 3px rgba(255, 255, 255, 0.8), 0 0 20px rgba(255, 223, 186, 0.7), 0 0 45px rgba(255, 165, 0, 0.5), 0 0 75px rgba(255, 69, 0, 0.3);
+  width: 40%;
+  height: 100%;
+  position: relative;
+  border-radius: 5%;
+}
+.contact .cta img {
+  position: relative;
+  width: 60%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: 50%;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  filter: sepia(0.6);
+}
+.contact .cta .header {
+  width: 100%;
+  position: relative;
+  text-align: center;
+  top: 23%;
+  transform: translateY(-50%);
+  padding: 0 0.75rem 0 0.75rem;
+}
+.contact .cta .header h2 {
+  font-size: 3vw;
+  color: #f2e7d5;
+  text-shadow: 0 0 3px rgba(255, 255, 255, 0.8), 0 0 20px rgba(255, 223, 186, 0.7), 0 0 45px rgba(255, 165, 0, 0.5), 0 0 75px rgba(255, 69, 0, 0.3);
+  text-align: center;
+  padding-bottom: 0.25rem;
+}
+.contact .cta .header p {
+  color: #a8a194;
+  text-align: center;
+  font-size: 1vw;
+}
+.contact form {
+  width: 60%;
+  height: 100%;
+  border-radius: 0 5% 5% 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.contact form h3 {
+  font-size: 1.75vw;
+  color: #f2e7d5;
+  text-align: left;
+  width: 70%;
+  padding-bottom: 0.75rem;
+  text-shadow: 0 0 3px rgba(255, 255, 255, 0.8), 0 0 20px rgba(255, 223, 186, 0.7), 0 0 45px rgba(255, 165, 0, 0.5), 0 0 75px rgba(255, 69, 0, 0.3);
+}
+.contact form input {
+  border: none;
+  background-color: rgba(31, 31, 30, 0.6);
+  backdrop-filter: blur(calc(0.25vh + 0.25vw));
+  width: 70%;
+  height: 15%;
+  border-radius: 1rem;
+  padding: 0 0.5rem 0 0.75rem;
+  box-shadow: 0 0 3px rgba(255, 255, 255, 0.8), 0 0 10px rgba(255, 223, 186, 0.7), 0 0 20px rgba(255, 165, 0, 0.5), 0 0 30px rgba(255, 69, 0, 0.3);
+}
+.contact form input::placeholder {
+  font-family: "Nunito", sans-serif;
+  text-align: left;
+  font-size: 1rem;
+  color: #a8a194;
+  opacity: 0.5;
+  font-weight: 600;
+}
+.contact form textarea {
+  border: none;
+  background-color: rgba(31, 31, 30, 0.6);
+  backdrop-filter: blur(calc(0.25vh + 0.25vw));
+  width: 70%;
+  height: 25%;
+  border-radius: 1rem;
+  padding: 0.75rem 0.5rem 0.75rem 0.75rem;
+  box-shadow: 0 0 3px rgba(255, 255, 255, 0.8), 0 0 10px rgba(255, 223, 186, 0.7), 0 0 20px rgba(255, 165, 0, 0.5), 0 0 30px rgba(255, 69, 0, 0.3);
+}
+.contact form textarea::placeholder {
+  font-family: "Nunito", sans-serif;
+  text-align: left;
+  font-size: 1rem;
+  color: #a8a194;
+  opacity: 0.5;
+  font-weight: 600;
+}
+.contact form button {
+  border: none;
+  background-color: #f2e7d5;
+  font-size: 1.4vw;
+  border-radius: 1rem;
+  color: #000000;
+  width: 70%;
+  height: 15%;
+  text-transform: capitalize;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 300ms ease-in;
+}
+.contact form button:hover {
+  background-color: #2b2a29;
+  color: #f2e7d5;
+  text-shadow: 0 0 3px rgba(255, 255, 255, 0.8), 0 0 20px rgba(255, 223, 186, 0.7), 0 0 45px rgba(255, 165, 0, 0.5), 0 0 75px rgba(255, 69, 0, 0.3);
 }
 
 *,
