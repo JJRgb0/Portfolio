@@ -72,7 +72,54 @@ function mainGSAP({ wrapperRef, contentRef, sunRef, aboutRef, knowledgeRef, proj
 
         animations.push(secondAnim);
 
-        return { firstAnim, secondAnim };
+        const thirdAnim = gsap.to(sunRef.current,
+            {
+                top: 0,
+                left: 0,
+                x: '-40%',
+                width: '45%',
+                ease: 'none',
+                overwrite: 'auto',
+                immediateRender: false,
+                scrollTrigger: {
+                    trigger: projectsRef.current,
+                    start: 'top bottom',
+                    end: 'top top',
+                    scrub: true,
+                    invalidateOnRefresh: true,
+                    refreshPriority: -1,
+                }
+            }
+        )
+
+        animations.push(thirdAnim);
+
+        const fourthAnim = gsap.to(sunRef.current,
+            {
+                opacity: .5,
+                zIndex: 0,
+                top: '50%',
+                left: '50%',
+                width: '75%',
+                filter: 'blur(0.2vw)',
+                x: 0,
+                y: 0,
+                ease: 'none',
+                overwrite: 'auto',
+                immediateRender: false,
+                scrollTrigger: {
+                    trigger: contactRef.current,
+                    start: 'top bottom',
+                    end: 'top top',
+                    scrub: true,
+                    invalidateOnRefresh: true,
+                }
+            }
+        )
+
+        animations.push(fourthAnim);
+
+        return { firstAnim, secondAnim, thirdAnim, fourthAnim };
     })
 
     mm.add("(orientation: portrait)", () => {
@@ -125,7 +172,154 @@ function mainGSAP({ wrapperRef, contentRef, sunRef, aboutRef, knowledgeRef, proj
 
         animations.push(secondAnim);
 
-        return { firstAnim, secondAnim };
+        const thirdAnim = gsap.to(sunRef.current,
+            {
+                top: 0,
+                left: 0,
+                x: '-40%',
+                width: '45%',
+                ease: 'none',
+                overwrite: 'auto',
+                immediateRender: false,
+                scrollTrigger: {
+                    trigger: projectsRef.current,
+                    start: 'top bottom',
+                    end: 'top top',
+                    scrub: true,
+                    invalidateOnRefresh: true,
+                    refreshPriority: -1,
+                }
+            }
+        )
+
+        animations.push(thirdAnim);
+
+        const fourthAnim = gsap.to(sunRef.current,
+            {
+                opacity: .5,
+                zIndex: 0,
+                top: '72.5%',
+                left: '100%',
+                width: '55%',
+                filter: 'blur(0.2vw)',
+                x: '-50%',
+                y: '-50%',
+                ease: 'none',
+                overwrite: 'auto',
+                immediateRender: false,
+                scrollTrigger: {
+                    trigger: contactRef.current,
+                    start: 'top bottom',
+                    end: 'top top',
+                    scrub: true,
+                    invalidateOnRefresh: true,
+                }
+            }
+        )
+
+        animations.push(fourthAnim);
+
+        return { firstAnim, secondAnim, thirdAnim, fourthAnim };
+    })
+
+    mm.add("(max-aspect-ratio: 2/3)", () => {
+        const firstAnim = gsap.fromTo(sunRef.current,
+            {
+                top: '100%',
+                left: '50%',
+                width: '80%',
+                y: '-70%',
+                x: '-5%',
+                filter: 'blur(0.25vw)',
+            },
+            {
+                width: '90%',
+                y: '-50%',
+                x: '-50%',
+                filter: 'blur(0px)',
+                ease: 'none',
+                scrollTrigger: {
+                    trigger: aboutRef.current,
+                    start: 'top bottom',
+                    end: 'top+=75% bottom',
+                    scrub: true,
+                    refreshPriority: 2
+                }
+            })
+
+        animations.push(firstAnim);
+
+        const secondAnim = gsap.to(sunRef.current,
+            {
+                top: '50%',
+                y: '-50%',
+                width: '22.5%',
+                left: '50%',
+                x: '-50%',
+                ease: 'none',
+                overwrite: 'auto',
+                immediateRender: false,
+                scrollTrigger: {
+                    trigger: knowledgeRef.current,
+                    start: 'top top',
+                    end: 'bottom+=50% bottom',
+                    scrub: true,
+                    invalidateOnRefresh: true,
+                    refreshPriority: 1,
+                }
+            }
+        )
+
+        animations.push(secondAnim);
+
+        const thirdAnim = gsap.to(sunRef.current,
+            {
+                top: 0,
+                left: 0,
+                x: '-40%',
+                width: '45%',
+                ease: 'none',
+                overwrite: 'auto',
+                immediateRender: false,
+                scrollTrigger: {
+                    trigger: projectsRef.current,
+                    start: 'top bottom',
+                    end: 'top top',
+                    scrub: true,
+                    invalidateOnRefresh: true,
+                    refreshPriority: -1,
+                }
+            }
+        )
+
+        animations.push(thirdAnim);
+
+        const fourthAnim = gsap.to(sunRef.current,
+            {
+                opacity: .5,
+                zIndex: 0,
+                top: '100%',
+                left: '100%',
+                width: '95%',
+                filter: 'blur(0.2vw)',
+                x: '-50%',
+                y: '-50%',
+                ease: 'none',
+                overwrite: 'auto',
+                immediateRender: false,
+                scrollTrigger: {
+                    trigger: contactRef.current,
+                    start: 'top bottom',
+                    end: 'top top',
+                    scrub: true,
+                    invalidateOnRefresh: true,
+                }
+            }
+        )
+
+        animations.push(fourthAnim);
+
+        return { firstAnim, secondAnim, thirdAnim, fourthAnim };
     })
 
     mm.add("(min-aspect-ratio: 21/9)", () => {
@@ -180,53 +374,55 @@ function mainGSAP({ wrapperRef, contentRef, sunRef, aboutRef, knowledgeRef, proj
         )
 
         animations.push(secondAnim);
-        return { firstAnim, secondAnim };
+
+        const thirdAnim = gsap.to(sunRef.current,
+            {
+                top: 0,
+                left: 0,
+                x: '-40%',
+                width: '45%',
+                ease: 'none',
+                overwrite: 'auto',
+                immediateRender: false,
+                scrollTrigger: {
+                    trigger: projectsRef.current,
+                    start: 'top bottom',
+                    end: 'top top',
+                    scrub: true,
+                    invalidateOnRefresh: true,
+                    refreshPriority: -1,
+                }
+            }
+        )
+
+        animations.push(thirdAnim);
+
+        const fourthAnim = gsap.to(sunRef.current,
+            {
+                opacity: .5,
+                zIndex: 0,
+                top: '50%',
+                left: '50%',
+                width: '75%',
+                filter: 'blur(0.2vw)',
+                x: 0,
+                y: 0,
+                ease: 'none',
+                overwrite: 'auto',
+                immediateRender: false,
+                scrollTrigger: {
+                    trigger: contactRef.current,
+                    start: 'top bottom',
+                    end: 'top top',
+                    scrub: true,
+                    invalidateOnRefresh: true,
+                }
+            }
+        )
+
+        animations.push(fourthAnim);
+        return { firstAnim, secondAnim, thirdAnim, fourthAnim };
     })
-
-    const thirdAnim = gsap.to(sunRef.current,
-        {
-            top: 0,
-            left: 0,
-            x: '-40%',
-            width: '45%',
-            ease: 'none',
-            overwrite: 'auto',
-            immediateRender: false,
-            scrollTrigger: {
-                trigger: projectsRef.current,
-                start: 'top bottom',
-                end: 'top top',
-                scrub: true,
-                invalidateOnRefresh: true,
-                refreshPriority: -1,
-            }
-        }
-    )
-
-    animations.push(thirdAnim);
-
-    const fourthAnim = gsap.to(sunRef.current,
-        {
-            zIndex: 0,
-            top: '42%',
-            left: '10%',
-            y: '-50%',
-            x: 0,
-            width: '26%',
-            ease: 'none',
-            overwrite: 'auto',
-            immediateRender: false,
-            scrollTrigger: {
-                trigger: contactRef.current,
-                start: 'top bottom',
-                end: 'top top',
-                scrub: true,
-                invalidateOnRefresh: true,
-            }
-        }
-    )
-
-    animations.push(fourthAnim);
 
     return () => {
         animations.forEach(anim => {

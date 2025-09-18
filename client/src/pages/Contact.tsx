@@ -1,6 +1,20 @@
-import { RefObject } from "react";
+import { RefObject, useLayoutEffect, useRef } from "react";
+import { contactGSAP } from "../gsap/contact";
 
 export default function Contact({ ref }: { ref: RefObject<HTMLElement | null> }) {
+
+    const c = useRef(0);
+
+    useLayoutEffect(() => {
+        if (c.current > 0) return
+        c.current = 1;
+        return () => {
+            contactGSAP({
+                ref,
+            })
+        }
+    }, [])
+
     return (
         <section ref={ref} className="contact">
             <div className="cta">

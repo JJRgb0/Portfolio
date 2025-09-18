@@ -10,7 +10,7 @@ function aboutGSAP({ ref, imgRef, h2Ref, pRef }: { ref: RefObject<HTMLElement | 
             scrollTrigger: {
                 trigger: ref.current,
                 start: "top top",
-                end: "+=500px",
+                end: "+=1000px",
                 pin: true,
                 pinSpacing: "margin",
                 scrub: 1,

@@ -47,6 +47,7 @@ function Main() {
                 <Knowledge ref={knowledgeRef} openAllSkills={setIsAllSkills} />
                 <Projects ref={projectsRef} />
                 <Contact ref={contactRef} />
+                <div style={{ height: '1px' }}></div>
             </div>
         </main>
     )
