@@ -16,7 +16,8 @@ function projectsGSAP({ ref, imgRef, h2Ref, contentRef }: { ref: RefObject<HTMLE
                 pin: true,
                 pinSpacing: "margin",
                 scrub: 1,
-                anticipatePin: 1
+                anticipatePin: 1,
+                id: "projects-section"
             }
         })
 

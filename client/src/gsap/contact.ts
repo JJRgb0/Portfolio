@@ -16,6 +16,7 @@ function contactGSAP({ ref }: { ref: RefObject<HTMLElement | null> }) {
                 pin: true,
                 pinSpacing: 'margin',
                 anticipatePin: 1,
+                id: "contact-section",
             }
         })
         tl.fromTo(ref.current,

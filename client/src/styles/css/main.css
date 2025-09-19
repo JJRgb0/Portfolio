@@ -92,6 +92,7 @@
   font-size: 1.1vw;
   transition: ease-in 300ms;
   cursor: pointer;
+  user-select: none;
 }
 .navbar li:hover {
   text-shadow: 0 0 3px rgba(255, 255, 255, 0.8), 0 0 20px rgba(255, 223, 186, 0.7), 0 0 45px rgba(255, 165, 0, 0.5), 0 0 75px rgba(255, 69, 0, 0.3);
@@ -895,6 +896,8 @@
   height: 15%;
   border-radius: 1rem;
   padding: 0 0.5rem 0 0.75rem;
+  color: #a8a194;
+  font-size: calc(1vw + 0.75vh);
   box-shadow: 0 0 3px rgba(255, 255, 255, 0.8), 0 0 10px rgba(255, 223, 186, 0.7), 0 0 20px rgba(255, 165, 0, 0.5), 0 0 30px rgba(255, 69, 0, 0.3);
 }
 .contact form input::placeholder {
@@ -905,6 +908,9 @@
   opacity: 0.75;
   font-weight: 600;
 }
+.contact form input:focus {
+  outline: none;
+}
 .contact form textarea {
   border: none;
   background-color: rgba(31, 31, 30, 0.6);
@@ -914,6 +920,8 @@
   border-radius: 1rem;
   padding: 0.75rem 0.5rem 0.75rem 0.75rem;
   box-shadow: 0 0 3px rgba(255, 255, 255, 0.8), 0 0 10px rgba(255, 223, 186, 0.7), 0 0 20px rgba(255, 165, 0, 0.5), 0 0 30px rgba(255, 69, 0, 0.3);
+  color: #a8a194;
+  font-size: calc(1vw + 0.75vh);
 }
 .contact form textarea::placeholder {
   font-family: "Nunito", sans-serif;
@@ -922,6 +930,9 @@
   color: #a8a194;
   opacity: 0.75;
   font-weight: 600;
+}
+.contact form textarea:focus {
+  outline: none;
 }
 .contact form button {
   border: none;
@@ -1065,12 +1076,14 @@
   }
   .contact form input {
     height: 12.5%;
+    font-size: calc(1.25vw + 1vh);
   }
   .contact form input::placeholder {
     font-size: calc(1.25vw + 1vh);
   }
   .contact form textarea {
     height: 21%;
+    font-size: calc(1.25vw + 1vh);
   }
   .contact form textarea::placeholder {
     font-size: calc(1.25vw + 1vh);
@@ -1161,12 +1174,14 @@
   }
   .contact form input {
     height: 12.5%;
+    font-size: calc(0.75vw + 0.75vh);
   }
   .contact form input::placeholder {
     font-size: calc(0.75vw + 0.75vh);
   }
   .contact form textarea {
     height: 20%;
+    font-size: calc(0.75vw + 0.75vh);
   }
   .contact form textarea::placeholder {
     font-size: calc(0.75vw + 0.75vh);

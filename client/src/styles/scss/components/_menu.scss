@@ -47,6 +47,7 @@
         font-size: 1.1vw;
         transition: ease-in 300ms;
         cursor: pointer;
+        user-select: none;
 
         &:hover {
             text-shadow: $sun-glow;

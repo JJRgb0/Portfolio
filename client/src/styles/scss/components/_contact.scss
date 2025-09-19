@@ -73,6 +73,8 @@
             height: 15%;
             border-radius: 1rem;
             padding: 0 .5rem 0 .75rem;
+            color: $secondary-color;
+            font-size: calc(1vw + 0.75vh);
             box-shadow: $weak-sun-glow;
 
             &::placeholder {
@@ -82,6 +84,10 @@
                 color: $secondary-color;
                 opacity: .75;
                 font-weight: 600;
+            }
+
+            &:focus {
+                outline: none;
             }
         }
 
@@ -94,6 +100,8 @@
             border-radius: 1rem;
             padding: .75rem .5rem .75rem .75rem;
             box-shadow: $weak-sun-glow;
+            color: $secondary-color;
+            font-size: calc(1vw + 0.75vh);
 
             &::placeholder {
                 font-family: $body-font;
@@ -102,6 +110,10 @@
                 color: $secondary-color;
                 opacity: .75;
                 font-weight: 600;
+            }
+
+            &:focus {
+                outline: none;
             }
         }
 
@@ -280,6 +292,7 @@
 
                 input {
                     height: 12.5%;
+                    font-size: calc(1.25vw + 1vh);
 
                     &::placeholder {
                         font-size: calc(1.25vw + 1vh);
@@ -288,6 +301,7 @@
 
                 textarea {
                     height: 21%;
+                    font-size: calc(1.25vw + 1vh);
 
                     &::placeholder {
                         font-size: calc(1.25vw + 1vh);
@@ -400,6 +414,7 @@
 
             input {
                 height: 12.5%;
+                font-size: calc(0.75vw + 0.75vh);
 
                 &::placeholder {
                     font-size: calc(0.75vw + 0.75vh);
@@ -408,6 +423,7 @@
 
             textarea {
                 height: 20%;
+                font-size: calc(0.75vw + 0.75vh);
 
                 &::placeholder {
                     font-size: calc(0.75vw + 0.75vh);

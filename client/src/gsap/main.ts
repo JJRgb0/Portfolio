@@ -14,7 +14,7 @@ function mainGSAP({ wrapperRef, contentRef, sunRef, aboutRef, knowledgeRef, proj
         smoothTouch: 1,
     })
 
-    //smoother.scrollTo(0, false);
+    smoother.scrollTo(0, false);
 
     const mm = gsap.matchMedia();
     const animations: (gsap.core.Timeline | gsap.core.Tween)[] = [];
@@ -424,13 +424,16 @@ function mainGSAP({ wrapperRef, contentRef, sunRef, aboutRef, knowledgeRef, proj
         return { firstAnim, secondAnim, thirdAnim, fourthAnim };
     })
 
-    return () => {
-        animations.forEach(anim => {
-            if (anim) anim.kill();
-        })
+    return {
+        smoother,
+        cleanup: () => {
+            animations.forEach(anim => {
+                if (anim) anim.kill();
+            })
 
-        smoother.kill();
-        mm.revert();
+            smoother.kill();
+            mm.revert();
+        }
     }
 }
 

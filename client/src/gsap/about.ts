@@ -14,7 +14,8 @@ function aboutGSAP({ ref, imgRef, h2Ref, pRef }: { ref: RefObject<HTMLElement | 
                 pin: true,
                 pinSpacing: "margin",
                 scrub: 1,
-                anticipatePin: 1
+                anticipatePin: 1,
+                id: "about-section"
             }
         });
 

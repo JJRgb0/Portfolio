@@ -20,23 +20,25 @@ function Main() {
 
     const [isAllSkills, setIsAllSkills] = useState(false);
 
+    const [smoother, setSmoother] = useState<ScrollSmoother | null>(null);
+
     useLayoutEffect(() => {
-        return () => {
-            mainGSAP({
-                wrapperRef,
-                contentRef,
-                sunRef,
-                aboutRef,
-                knowledgeRef,
-                projectsRef,
-                contactRef
-            })
-        }
+        const gsapInstance = mainGSAP({
+            wrapperRef,
+            contentRef,
+            sunRef,
+            aboutRef,
+            knowledgeRef,
+            projectsRef,
+            contactRef
+        })
+        setSmoother(gsapInstance.smoother);
+        return gsapInstance.cleanup;
     }, [])
 
     return (
         <main ref={wrapperRef} className="main">
-            <Navbar />
+            <Navbar smoother={smoother} />
             <video ref={sunRef} autoPlay muted playsInline loop>
                 <source src="videos/sun.webm" type="video/webm" />
             </video>

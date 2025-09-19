@@ -14,7 +14,8 @@ function knowledgeGSAP({ ref, h2Ref, frontendRef, backendRef, devopsRef }: { ref
                 pin: true,
                 pinSpacing: "margin",
                 scrub: 1,
-                anticipatePin: 1
+                anticipatePin: 1,
+                id: "knowledge-section"
             }
         })
 
