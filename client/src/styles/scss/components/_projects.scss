@@ -117,7 +117,7 @@
         font-size: calc(0.75vw + 0.5vh);
     }
 
-    button {
+    a {
         color: transparent;
         background: linear-gradient(to right, #A98A62, #DFC691) text;
         text-transform: capitalize;
@@ -126,6 +126,7 @@
         font-weight: bold;
         position: relative;
         border: none;
+        text-decoration: none;
         cursor: pointer;
         transition: all ease-in 300ms;
 
@@ -178,7 +179,7 @@
             font-size: calc(0.75vw + 0.75vh);
         }
 
-        button {
+        a {
             font-size: calc(1vw + 0.75vh);
         }
     }
@@ -202,7 +203,7 @@
             font-size: calc(0.5vw + 0.5vh);
         }
 
-        button {
+        a {
             font-size: calc(0.75vw + 0.5vh);
         }
     }

@@ -13,6 +13,7 @@ function Main() {
     const sunRef = useRef<HTMLVideoElement>(null);
     const wrapperRef = useRef<HTMLElement>(null);
     const contentRef = useRef<HTMLDivElement>(null);
+    const homeRef = useRef<HTMLElement>(null);
     const aboutRef = useRef<HTMLElement>(null);
     const knowledgeRef = useRef<HTMLElement>(null);
     const projectsRef = useRef<HTMLElement>(null);
@@ -38,13 +39,19 @@ function Main() {
 
     return (
         <main ref={wrapperRef} className="main">
-            <Navbar smoother={smoother} />
+            <Navbar smoother={smoother} secRefs={{
+                home: homeRef,
+                about: aboutRef,
+                knowledge: knowledgeRef,
+                projects: projectsRef,
+                contact: contactRef
+            }} />
             <video ref={sunRef} autoPlay muted playsInline loop>
                 <source src="videos/sun.webm" type="video/webm" />
             </video>
             <AllSkills isAllSkills={isAllSkills} closeAllSkills={setIsAllSkills} />
             <div ref={contentRef}>
-                <Home />
+                <Home ref={homeRef} smoother={smoother} />
                 <About ref={aboutRef} />
                 <Knowledge ref={knowledgeRef} openAllSkills={setIsAllSkills} />
                 <Projects ref={projectsRef} />

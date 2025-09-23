@@ -48,8 +48,13 @@
         transition: ease-in 300ms;
         cursor: pointer;
         user-select: none;
+        text-transform: capitalize;
 
         &:hover {
+            text-shadow: $sun-glow;
+        }
+
+        &.active {
             text-shadow: $sun-glow;
         }
     }

@@ -93,8 +93,12 @@
   transition: ease-in 300ms;
   cursor: pointer;
   user-select: none;
+  text-transform: capitalize;
 }
 .navbar li:hover {
+  text-shadow: 0 0 3px rgba(255, 255, 255, 0.8), 0 0 20px rgba(255, 223, 186, 0.7), 0 0 45px rgba(255, 165, 0, 0.5), 0 0 75px rgba(255, 69, 0, 0.3);
+}
+.navbar li.active {
   text-shadow: 0 0 3px rgba(255, 255, 255, 0.8), 0 0 20px rgba(255, 223, 186, 0.7), 0 0 45px rgba(255, 165, 0, 0.5), 0 0 75px rgba(255, 69, 0, 0.3);
 }
 @media (orientation: portrait) {
@@ -525,7 +529,7 @@
   justify-content: center;
   align-items: center;
 }
-.knowledge .title {
+.knowledge .header {
   position: absolute;
   top: 15%;
   left: 5%;
@@ -535,12 +539,18 @@
   align-items: flex-start;
   gap: 1vw 0;
 }
-.knowledge .title h2 {
+.knowledge .header h2 {
   font-size: 5vw;
   color: #f2e7d5;
   text-shadow: 0 0 3px rgba(255, 255, 255, 0.8), 0 0 20px rgba(255, 223, 186, 0.7), 0 0 45px rgba(255, 165, 0, 0.5), 0 0 75px rgba(255, 69, 0, 0.3);
+  padding-bottom: 0.25rem;
 }
-.knowledge .title button {
+.knowledge .header p {
+  color: #a8a194;
+  font-size: calc(1vw + 0.5vh);
+  width: 65%;
+}
+.knowledge .header button {
   font-size: 1.25vw;
   background-color: #f2e7d5;
   padding: 0.5vw 1vw 0.5vw 1vw;
@@ -552,7 +562,7 @@
   cursor: pointer;
   transition: 300ms ease-in;
 }
-.knowledge .title button:hover {
+.knowledge .header button:hover {
   background-color: #2b2a29;
   color: #f2e7d5;
   text-shadow: 0 0 3px rgba(255, 255, 255, 0.8), 0 0 20px rgba(255, 223, 186, 0.7), 0 0 45px rgba(255, 165, 0, 0.5), 0 0 75px rgba(255, 69, 0, 0.3);
@@ -601,13 +611,18 @@
   background: transparent;
 }
 @media (orientation: portrait) {
-  .knowledge .title {
+  .knowledge .header {
+    top: 12.5%;
     gap: 1vh 0;
   }
-  .knowledge .title h2 {
+  .knowledge .header h2 {
     font-size: calc(3vw + 3vh);
   }
-  .knowledge .title button {
+  .knowledge .header p {
+    font-size: calc(0.5vw + 1.25vh);
+    width: 70%;
+  }
+  .knowledge .header button {
     font-size: calc(1vh + 1.75vw);
     border-radius: calc(0.5vw + 0.5vh);
     padding: 0.85vw 1.5vw 0.85vw 1.5vw;
@@ -624,7 +639,7 @@
   }
 }
 @media (max-aspect-ratio: 0.6428571429) {
-  .knowledge .titles h2 {
+  .knowledge .header h2 {
     font-size: calc(3vw + 4vh);
   }
   .knowledge .frontend,
@@ -755,7 +770,7 @@
   color: #a8a194;
   font-size: calc(0.75vw + 0.5vh);
 }
-.project button {
+.project a {
   color: transparent;
   background: linear-gradient(to right, #A98A62, #DFC691) text;
   text-transform: capitalize;
@@ -764,10 +779,11 @@
   font-weight: bold;
   position: relative;
   border: none;
+  text-decoration: none;
   cursor: pointer;
   transition: all ease-in 300ms;
 }
-.project button::before {
+.project a::before {
   content: "";
   position: absolute;
   inset: 0;
@@ -777,7 +793,7 @@
   mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
   mask-composite: exclude;
 }
-.project button:hover {
+.project a:hover {
   transform: scale(0.95);
 }
 .project:first-child {
@@ -802,7 +818,7 @@
   .project p {
     font-size: calc(0.75vw + 0.75vh);
   }
-  .project button {
+  .project a {
     font-size: calc(1vw + 0.75vh);
   }
 }
@@ -819,7 +835,7 @@
   .project p {
     font-size: calc(0.5vw + 0.5vh);
   }
-  .project button {
+  .project a {
     font-size: calc(0.75vw + 0.5vh);
   }
 }
@@ -1228,6 +1244,7 @@ p,
 q,
 button,
 span,
-li {
+li,
+a {
   font-family: "Nunito", sans-serif;
 }

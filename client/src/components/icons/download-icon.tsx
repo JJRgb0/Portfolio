@@ -1,5 +1,3 @@
-import React from "react";
-
 function DownloadIcon({ size = 64 }: { size?: number }) {
     return (
         <svg

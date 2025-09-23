@@ -1,5 +1,3 @@
-import React from "react";
-
 function Github({ size = 64 }: { size?: number }) {
     return (
         <svg

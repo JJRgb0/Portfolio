@@ -47,9 +47,12 @@ function Knowledge({ ref, openAllSkills }: { ref: RefObject<HTMLElement | null>;
     }, [])
 
     return (
-        <section ref={ref} className="knowledge">
-            <div ref={h2Ref} className="title">
-                <h2>My skills</h2>
+        <section ref={ref} className="knowledge" id="knowledge">
+            <div ref={h2Ref} className="header">
+                <div>
+                    <h2>My skills</h2>
+                    <p>Tools, frameworks, and languages I enjoy working with to bring ideas to life.</p>
+                </div>
                 <button onClick={() => openAllSkills(true)}>See all skills</button>
             </div>
             <div ref={frontendRef} className="frontend">

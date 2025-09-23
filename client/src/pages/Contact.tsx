@@ -16,7 +16,7 @@ export default function Contact({ ref }: { ref: RefObject<HTMLElement | null> })
     }, [])
 
     return (
-        <section ref={ref} className="contact">
+        <section ref={ref} className="contact" id="contact">
             <div className="cta">
                 <img src="images/headshot.jpeg"></img>
                 <div className="header">

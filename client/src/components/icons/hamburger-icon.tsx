@@ -1,5 +1,3 @@
-import React from "react";
-
 const Hamburger = ({ size = 64, onClick, className, toggle }: { size?: number; onClick?: () => void; className?: string, toggle: boolean }) => {
     return (
         <svg

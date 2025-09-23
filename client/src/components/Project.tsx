@@ -1,4 +1,4 @@
-export default function Project({ name, techs, imgSrc, description }: { name: string; techs: string[]; imgSrc: string; description: string }) {
+export default function Project({ name, techs, imgSrc, description, link }: { name: string; techs: string[]; imgSrc: string; description: string; link: string }) {
     return (
         <section className={`${name} project`}>
             <div className="techs">
@@ -11,9 +11,7 @@ export default function Project({ name, techs, imgSrc, description }: { name: st
                 <h3>{name}</h3>
                 <p>{description}</p>
             </div>
-            <div>
-                <button>Acess it!</button>
-            </div>
+            <a href={link} target="_blank">Acess it!</a>
         </section>
     )
 }

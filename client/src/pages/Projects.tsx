@@ -24,13 +24,13 @@ function Projects({ ref }: { ref: RefObject<HTMLElement | null> }) {
     }, [])
 
     return (
-        <section ref={ref} className="projects">
+        <section ref={ref} className="projects" id="projects">
             <img ref={imgRef} src="images/galaxy.jpg" />
             <h2 ref={h2Ref}>My works</h2>
             <div ref={contentRef} className="content">
-                <Project name="kdLux" techs={['NextJS', 'Prisma', 'TailwindCSS']} description="A jewelry e-commerce" imgSrc="images/kdlux.webp" />
-                <Project name="Golden-Ace" techs={['ThreeJS', 'React', 'TailwindCSS']} description="A classic arcade" imgSrc="images/golden-ace.webp" />
-                <Project name="Petsart" techs={['Vite', 'TailwindCSS']} description="An art portfolio" imgSrc="images/petsart.webp" />
+                <Project name="kdLux" techs={['NextJS', 'Prisma', 'TailwindCSS']} description="Elegant e-commerce for modern jewelry." imgSrc="images/kdlux.webp" link="https://kdlux.vercel.app" />
+                <Project name="Golden-Ace" techs={['ThreeJS', 'React', 'TailwindCSS']} description="A retro arcade reimagined in 3D." imgSrc="images/golden-ace.webp" link="https://golden-ace-arcade.vercel.app" />
+                <Project name="Petsart" techs={['Vite', 'TailwindCSS']} description="An art gallery for PET sculptures." imgSrc="images/petsart.webp" link="https://petsart.store" />
             </div>
         </section>
     )
