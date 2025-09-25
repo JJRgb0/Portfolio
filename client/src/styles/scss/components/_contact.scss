@@ -3,7 +3,7 @@
 
 .contact {
     width: 100%;
-    height: 100vh;
+    height: 100dvh;
     padding: 7% 5% 7% 5%;
     @include flex_r(center, center);
 
@@ -14,7 +14,7 @@
         position: relative;
         border-radius: 2rem;
         background-color: rgba(31, 31, 30, 0.6);
-        backdrop-filter: blur(calc(.25vh + .25vw));
+        backdrop-filter: blur(calc(.25dvh + .25vw));
         padding: 0 1% 0 1%;
 
         img {
@@ -38,7 +38,7 @@
             padding: 0 .75rem 0 .75rem;
 
             h2 {
-                font-size: calc(2.25vw + 1vh);
+                font-size: calc(2.25vw + 1dvh);
                 color: $primary-color;
                 text-shadow: $sun-glow;
                 padding-bottom: .25rem;
@@ -46,7 +46,7 @@
 
             p {
                 color: $secondary-color;
-                font-size: calc(0.75vw + 0.5vh);
+                font-size: calc(0.75vw + 0.5dvh);
             }
         }
     }
@@ -57,7 +57,7 @@
         @include flex_c(space-evenly, center);
 
         h3 {
-            font-size: calc(1.5vw + 0.75vh);
+            font-size: calc(1.5vw + 0.75dvh);
             color: $primary-color;
             text-align: left;
             width: 70%;
@@ -68,19 +68,19 @@
         input {
             border: none;
             background-color: rgba(31, 31, 30, 0.6);
-            backdrop-filter: blur(calc(.25vh + .25vw));
+            backdrop-filter: blur(calc(.25dvh + .25vw));
             width: 70%;
             height: 15%;
             border-radius: 1rem;
             padding: 0 .5rem 0 .75rem;
             color: $secondary-color;
-            font-size: calc(1vw + 0.75vh);
+            font-size: calc(1vw + 0.75dvh);
             box-shadow: $weak-sun-glow;
 
             &::placeholder {
                 font-family: $body-font;
                 text-align: left;
-                font-size: calc(1vw + 0.75vh);
+                font-size: calc(1vw + 0.75dvh);
                 color: $secondary-color;
                 opacity: .75;
                 font-weight: 600;
@@ -94,19 +94,19 @@
         textarea {
             border: none;
             background-color: rgba(31, 31, 30, 0.6);
-            backdrop-filter: blur(calc(.25vh + .25vw));
+            backdrop-filter: blur(calc(.25dvh + .25vw));
             width: 70%;
             height: 25%;
             border-radius: 1rem;
             padding: .75rem .5rem .75rem .75rem;
             box-shadow: $weak-sun-glow;
             color: $secondary-color;
-            font-size: calc(1vw + 0.75vh);
+            font-size: calc(1vw + 0.75dvh);
 
             &::placeholder {
                 font-family: $body-font;
                 text-align: left;
-                font-size: calc(1vw + 0.75vh);
+                font-size: calc(1vw + 0.75dvh);
                 color: $secondary-color;
                 opacity: .75;
                 font-weight: 600;
@@ -120,7 +120,7 @@
         button {
             border: none;
             background-color: $primary-color;
-            font-size: calc(1.25vw + 0.75vh);
+            font-size: calc(1.25vw + 0.75dvh);
             border-radius: 1rem;
             color: $bg-color;
             width: 70%;
@@ -136,6 +136,26 @@
                 text-shadow: $sun-glow;
             }
         }
+    }
+
+    .status {
+        position: absolute;
+        top: 95%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: $bg-color;
+        width: 90%;
+        height: 7dvh;
+        border-radius: 1rem;
+        pointer-events: none;
+        transition-duration: 500ms;
+        max-width: 62rem;
+        text-align: center;
+        font-size: 100%;
+        box-shadow: 0 5px 5px $bg-color;
+        text-transform: uppercase;
+        font-weight: 500;
+        @include flex_r(center, center);
     }
 
     @include max-aspect(5/3) {
@@ -225,11 +245,11 @@
                 left: 40%;
 
                 h2 {
-                    font-size: calc(2.5vw + 1.5vh);
+                    font-size: calc(2.5vw + 1.5dvh);
                 }
 
                 p {
-                    font-size: calc(1vw + 0.75vh);
+                    font-size: calc(1vw + 0.75dvh);
                 }
             }
         }
@@ -264,7 +284,7 @@
                 width: 70%;
 
                 h3 {
-                    font-size: calc(2vw + 1vh);
+                    font-size: calc(2vw + 1dvh);
                 }
             }
         }
@@ -278,11 +298,11 @@
                 .header {
 
                     h2 {
-                        font-size: calc(2vw + 1.25vh);
+                        font-size: calc(2vw + 1.25dvh);
                     }
 
                     p {
-                        font-size: calc(1vw + 0.5vh);
+                        font-size: calc(1vw + 0.5dvh);
                     }
                 }
             }
@@ -292,25 +312,25 @@
 
                 input {
                     height: 12.5%;
-                    font-size: calc(1.25vw + 1vh);
+                    font-size: calc(1.25vw + 1dvh);
 
                     &::placeholder {
-                        font-size: calc(1.25vw + 1vh);
+                        font-size: calc(1.25vw + 1dvh);
                     }
                 }
 
                 textarea {
                     height: 21%;
-                    font-size: calc(1.25vw + 1vh);
+                    font-size: calc(1.25vw + 1dvh);
 
                     &::placeholder {
-                        font-size: calc(1.25vw + 1vh);
+                        font-size: calc(1.25vw + 1dvh);
                     }
                 }
 
                 button {
                     height: 12.5%;
-                    font-size: calc(1.5vw + 1vh);
+                    font-size: calc(1.5vw + 1dvh);
                 }
             }
         }
@@ -338,11 +358,11 @@
                     text-align: center;
 
                     h2 {
-                        font-size: calc(2.5vw + 1.5vh);
+                        font-size: calc(2.5vw + 1.5dvh);
                     }
 
                     p {
-                        font-size: calc(1.25vw + 0.75vh);
+                        font-size: calc(1.25vw + 0.75dvh);
                     }
                 }
             }
@@ -400,7 +420,7 @@
                 top: 50%;
 
                 h2 {
-                    font-size: calc(2vw + 1vh);
+                    font-size: calc(2vw + 1dvh);
                 }
             }
         }
@@ -409,30 +429,30 @@
             width: 50%;
 
             h3 {
-                font-size: calc(1.25vw + 0.75vh);
+                font-size: calc(1.25vw + 0.75dvh);
             }
 
             input {
                 height: 12.5%;
-                font-size: calc(0.75vw + 0.75vh);
+                font-size: calc(0.75vw + 0.75dvh);
 
                 &::placeholder {
-                    font-size: calc(0.75vw + 0.75vh);
+                    font-size: calc(0.75vw + 0.75dvh);
                 }
             }
 
             textarea {
                 height: 20%;
-                font-size: calc(0.75vw + 0.75vh);
+                font-size: calc(0.75vw + 0.75dvh);
 
                 &::placeholder {
-                    font-size: calc(0.75vw + 0.75vh);
+                    font-size: calc(0.75vw + 0.75dvh);
                 }
             }
 
             button {
                 height: 12.5%;
-                font-size: calc(1vw + 0.75vh);
+                font-size: calc(1vw + 0.75dvh);
             }
         }
     }
@@ -444,7 +464,7 @@
             width: 40%;
 
             h3 {
-                font-size: calc(1vw + 0.75vh);
+                font-size: calc(1vw + 0.75dvh);
             }
         }
     }

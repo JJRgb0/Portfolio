@@ -3,25 +3,18 @@ import { aboutGSAP } from "../gsap/about";
 
 function About({ ref }: { ref: RefObject<HTMLElement | null> }) {
 
-    const c = useRef(0);
-
     const contentRef = useRef<HTMLDivElement>(null);
     const h2Ref = useRef<HTMLHeadingElement>(null);
     const pRef = useRef<HTMLParagraphElement>(null);
     const imgRef = useRef<HTMLImageElement>(null);
 
-    useLayoutEffect(() => {
-        if (c.current > 0) return
-        c.current = 1;
-        return () => {
-            aboutGSAP({
-                ref,
-                imgRef,
-                h2Ref,
-                pRef,
-            })
-        }
-    }
+    useLayoutEffect(() =>
+        aboutGSAP({
+            ref,
+            imgRef,
+            h2Ref,
+            pRef,
+        })
         , [])
 
     return (

@@ -4,24 +4,18 @@ import { projectsGSAP } from "../gsap/projects"
 
 function Projects({ ref }: { ref: RefObject<HTMLElement | null> }) {
 
-    const c = useRef(0);
-
     const imgRef = useRef<HTMLImageElement>(null);
     const h2Ref = useRef<HTMLHeadingElement>(null);
     const contentRef = useRef<HTMLDivElement>(null);
 
-    useLayoutEffect(() => {
-        if (c.current > 0) return
-        c.current = 1;
-        return () => {
-            projectsGSAP({
-                ref,
-                imgRef,
-                h2Ref,
-                contentRef
-            })
-        }
-    }, [])
+    useLayoutEffect(() =>
+        projectsGSAP({
+            ref,
+            imgRef,
+            h2Ref,
+            contentRef
+        })
+        , [])
 
     return (
         <section ref={ref} className="projects" id="projects">

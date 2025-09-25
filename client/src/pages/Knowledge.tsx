@@ -3,26 +3,20 @@ import { knowledgeGSAP } from "../gsap/knowledge";
 
 function Knowledge({ ref, openAllSkills }: { ref: RefObject<HTMLElement | null>; openAllSkills: Dispatch<SetStateAction<boolean>> }) {
 
-    const c = useRef(0);
-
     const h2Ref = useRef<HTMLDivElement | null>(null);
     const frontendRef = useRef<HTMLDivElement>(null);
     const backendRef = useRef<HTMLDivElement>(null);
     const devopsRef = useRef<HTMLDivElement>(null);
 
-    useLayoutEffect(() => {
-        if (c.current > 0) return
-        c.current = 1;
-        return () => {
-            knowledgeGSAP({
-                ref,
-                h2Ref,
-                frontendRef,
-                backendRef,
-                devopsRef
-            })
-        }
-    }, [])
+    useLayoutEffect(() =>
+        knowledgeGSAP({
+            ref,
+            h2Ref,
+            frontendRef,
+            backendRef,
+            devopsRef
+        })
+        , [])
 
     const alignIcons = useCallback((el: Element, distance: string) => {
         const n = el.children.length;

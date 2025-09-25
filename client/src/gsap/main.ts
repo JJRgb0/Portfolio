@@ -11,7 +11,7 @@ function mainGSAP({ wrapperRef, contentRef, sunRef, aboutRef, knowledgeRef, proj
         wrapper: wrapperRef.current,
         content: contentRef.current,
         smooth: 1.75,
-        smoothTouch: 1,
+        smoothTouch: 0.5,
     })
 
     smoother.scrollTo(0, false);
@@ -19,6 +19,8 @@ function mainGSAP({ wrapperRef, contentRef, sunRef, aboutRef, knowledgeRef, proj
     const mm = gsap.matchMedia();
     const animations: (gsap.core.Timeline | gsap.core.Tween)[] = [];
 
+
+    // DEFAULT
     mm.add("(orientation: landscape) and (max-aspect-ratio: 21/9)", () => {
         const firstAnim = gsap.fromTo(sunRef.current,
             {
@@ -49,7 +51,13 @@ function mainGSAP({ wrapperRef, contentRef, sunRef, aboutRef, knowledgeRef, proj
 
         animations.push(firstAnim);
 
-        const secondAnim = gsap.to(sunRef.current,
+        const secondAnim = gsap.fromTo(sunRef.current,
+            {
+                width: '65%',
+                top: '50%',
+                left: 0,
+                y: '-50%',
+            },
             {
                 top: '50%',
                 y: '-50%',
@@ -72,7 +80,14 @@ function mainGSAP({ wrapperRef, contentRef, sunRef, aboutRef, knowledgeRef, proj
 
         animations.push(secondAnim);
 
-        const thirdAnim = gsap.to(sunRef.current,
+        const thirdAnim = gsap.fromTo(sunRef.current,
+            {
+                top: '50%',
+                y: '-50%',
+                width: '15%',
+                left: '50%',
+                x: '-50%',
+            },
             {
                 top: 0,
                 left: 0,
@@ -94,7 +109,13 @@ function mainGSAP({ wrapperRef, contentRef, sunRef, aboutRef, knowledgeRef, proj
 
         animations.push(thirdAnim);
 
-        const fourthAnim = gsap.to(sunRef.current,
+        const fourthAnim = gsap.fromTo(sunRef.current,
+            {
+                top: 0,
+                left: 0,
+                x: '-40%',
+                width: '45%',
+            },
             {
                 opacity: .5,
                 zIndex: 0,
@@ -122,6 +143,7 @@ function mainGSAP({ wrapperRef, contentRef, sunRef, aboutRef, knowledgeRef, proj
         return { firstAnim, secondAnim, thirdAnim, fourthAnim };
     })
 
+    // MOBILE
     mm.add("(orientation: portrait)", () => {
         const firstAnim = gsap.fromTo(sunRef.current,
             {
@@ -149,7 +171,12 @@ function mainGSAP({ wrapperRef, contentRef, sunRef, aboutRef, knowledgeRef, proj
 
         animations.push(firstAnim);
 
-        const secondAnim = gsap.to(sunRef.current,
+        const secondAnim = gsap.fromTo(sunRef.current,
+            {
+                width: '90%',
+                y: '-50%',
+                x: '-50%',
+            },
             {
                 top: '50%',
                 y: '-50%',
@@ -172,10 +199,17 @@ function mainGSAP({ wrapperRef, contentRef, sunRef, aboutRef, knowledgeRef, proj
 
         animations.push(secondAnim);
 
-        const thirdAnim = gsap.to(sunRef.current,
+        const thirdAnim = gsap.fromTo(sunRef.current,
             {
-                top: 0,
-                left: 0,
+                top: '50%',
+                left: '50%',
+                y: '-50%',
+                x: '-50%',
+                width: '22.5%'
+            },
+            {
+                top: '0%',
+                left: '0%',
                 x: '-40%',
                 width: '45%',
                 ease: 'none',
@@ -194,7 +228,13 @@ function mainGSAP({ wrapperRef, contentRef, sunRef, aboutRef, knowledgeRef, proj
 
         animations.push(thirdAnim);
 
-        const fourthAnim = gsap.to(sunRef.current,
+        const fourthAnim = gsap.fromTo(sunRef.current,
+            {
+                top: '0%',
+                left: '0%',
+                x: '-40%',
+                width: '45%',
+            },
             {
                 opacity: .5,
                 zIndex: 0,
@@ -222,6 +262,7 @@ function mainGSAP({ wrapperRef, contentRef, sunRef, aboutRef, knowledgeRef, proj
         return { firstAnim, secondAnim, thirdAnim, fourthAnim };
     })
 
+    //TALL
     mm.add("(max-aspect-ratio: 2/3)", () => {
         const firstAnim = gsap.fromTo(sunRef.current,
             {
@@ -249,7 +290,12 @@ function mainGSAP({ wrapperRef, contentRef, sunRef, aboutRef, knowledgeRef, proj
 
         animations.push(firstAnim);
 
-        const secondAnim = gsap.to(sunRef.current,
+        const secondAnim = gsap.fromTo(sunRef.current,
+            {
+                width: '90%',
+                y: '-50%',
+                x: '-50%',
+            },
             {
                 top: '50%',
                 y: '-50%',
@@ -272,7 +318,14 @@ function mainGSAP({ wrapperRef, contentRef, sunRef, aboutRef, knowledgeRef, proj
 
         animations.push(secondAnim);
 
-        const thirdAnim = gsap.to(sunRef.current,
+        const thirdAnim = gsap.fromTo(sunRef.current,
+            {
+                top: '50%',
+                y: '-50%',
+                width: '22.5%',
+                left: '50%',
+                x: '-50%',
+            },
             {
                 top: 0,
                 left: 0,
@@ -294,7 +347,13 @@ function mainGSAP({ wrapperRef, contentRef, sunRef, aboutRef, knowledgeRef, proj
 
         animations.push(thirdAnim);
 
-        const fourthAnim = gsap.to(sunRef.current,
+        const fourthAnim = gsap.fromTo(sunRef.current,
+            {
+                top: 0,
+                left: 0,
+                x: '-40%',
+                width: '45%',
+            },
             {
                 opacity: .5,
                 zIndex: 0,
@@ -322,10 +381,12 @@ function mainGSAP({ wrapperRef, contentRef, sunRef, aboutRef, knowledgeRef, proj
         return { firstAnim, secondAnim, thirdAnim, fourthAnim };
     })
 
+
+    //ULTRA WIDE
     mm.add("(min-aspect-ratio: 21/9)", () => {
         const firstAnim = gsap.fromTo(sunRef.current,
             {
-                height: '125vh',
+                height: '125dvh',
                 left: '100%',
                 top: '100%',
                 y: '-65%',
@@ -352,7 +413,14 @@ function mainGSAP({ wrapperRef, contentRef, sunRef, aboutRef, knowledgeRef, proj
 
         animations.push(firstAnim);
 
-        const secondAnim = gsap.to(sunRef.current,
+        const secondAnim = gsap.fromTo(sunRef.current,
+            {
+                width: '65%',
+                top: '50%',
+                left: 0,
+                y: '-50%',
+                x: '-50%',
+            },
             {
                 top: '50%',
                 y: '-50%',
@@ -375,7 +443,14 @@ function mainGSAP({ wrapperRef, contentRef, sunRef, aboutRef, knowledgeRef, proj
 
         animations.push(secondAnim);
 
-        const thirdAnim = gsap.to(sunRef.current,
+        const thirdAnim = gsap.fromTo(sunRef.current,
+            {
+                top: '50%',
+                y: '-50%',
+                width: '8%',
+                left: '50%',
+                x: '-50%',
+            },
             {
                 top: 0,
                 left: 0,
@@ -397,7 +472,13 @@ function mainGSAP({ wrapperRef, contentRef, sunRef, aboutRef, knowledgeRef, proj
 
         animations.push(thirdAnim);
 
-        const fourthAnim = gsap.to(sunRef.current,
+        const fourthAnim = gsap.fromTo(sunRef.current,
+            {
+                top: 0,
+                left: 0,
+                x: '-40%',
+                width: '45%',
+            },
             {
                 opacity: .5,
                 zIndex: 0,
