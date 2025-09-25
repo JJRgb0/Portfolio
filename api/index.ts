@@ -1,14 +1,10 @@
 import express from 'express';
 import cors from 'cors';
 import nodemailer from 'nodemailer';
-import dotenv from 'dotenv';
-import path from 'path';
 
 const app = express();
 app.use(express.json());
 app.use(cors());
-
-dotenv.config({ path: path.resolve(process.cwd(), '..', '.env.local') });
 
 const transport = nodemailer.createTransport({
     service: "gmail",
@@ -44,3 +40,5 @@ app.post('/mail', (req, res) => {
         return res.status(500).json({ ok: false, message: "Error: Server error" })
     }
 })
+
+export default app;

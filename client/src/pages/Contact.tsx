@@ -57,11 +57,12 @@ export default function Contact({ ref }: { ref: RefObject<HTMLElement | null> })
 
         setIsSubmitting(true);
         const isInDevelopment = import.meta.env.DEV;
-        const url = isInDevelopment ? 'http://localhost:3000/mail' : 'http://rubens-dmg.vercel.app/mail';
+        const url = isInDevelopment ? 'http://localhost:3000/mail' : 'https://rubens-dmg.vercel.app/mail';
         try {
             const res: Response = await fetch(url, {
                 method: 'POST',
                 headers: {
+                    'Access-Control-Allow-Origin': 'https://rubens-dmg.vercel.app',
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify(contactInfo)

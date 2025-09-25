@@ -6,9 +6,25 @@
             "config": {
                 "distDir": "dist"
             }
+        },
+        {
+            "src": "api/index.ts",
+            "use": "@vercel/node"
         }
     ],
     "routes": [
+        {
+            "src": "/favicon.ico",
+            "dest": "/client/favicon.ico"
+        },
+        {
+            "src": "/files/(.*)",
+            "dest": "/client/files/$1"
+        },
+        {
+            "src": "/mail",
+            "dest": "/api/index.ts"
+        },
         {
             "src": "/assets/(.*)",
             "dest": "/client/assets/$1"
