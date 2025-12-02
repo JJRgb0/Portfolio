@@ -57,8 +57,6 @@ function Main() {
         return gsapInstance.cleanup;
     }, [videoLoaded])
 
-    console.log(videoLoaded);
-
     return (
         <main ref={wrapperRef} className="main">
             <Navbar smoother={smoother} secRefs={{
@@ -69,7 +67,7 @@ function Main() {
                 contact: contactRef
             }} />
             {!videoLoaded &&
-                <img ref={sunImgRef} className="sunStatic" src="images/sun-image.png" alt="sun-image" />
+                <img ref={sunImgRef} className="sunStatic" src="/images/sun-image.png" alt="sun-image" />
             }
             <iframe ref={sunRef} title="vimeo-player" src="https://player.vimeo.com/video/1125618685?background=1&autoplay=1&loop=1&muted=1&title=0&badge=0&h=4889f6aad9" width={1080} height={1080} referrerPolicy="strict-origin-when-cross-origin" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" allowFullScreen className={videoLoaded ? '' : 'hidden'} />
             <AllSkills isAllSkills={isAllSkills} closeAllSkills={setIsAllSkills} />
