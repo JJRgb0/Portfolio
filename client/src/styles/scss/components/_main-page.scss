@@ -9,11 +9,21 @@
     background-image: url("images/stars.jpg");
     background-size: cover;
 
-    video {
+    iframe,
+    .sunStatic {
+        border: none;
+        pointer-events: none;
         position: fixed;
         z-index: 10;
-        pointer-events: none;
         mix-blend-mode: screen;
         object-fit: contain;
+    }
+
+    iframe.hidden {
+        display: none;
+    }
+
+    .sunStatic {
+        transform: scale(0.9);
     }
 }

@@ -14,7 +14,7 @@ const transport = nodemailer.createTransport({
     }
 });
 
-app.post('/mail', (req, res) => {
+app.post('/mail', async (req, res) => {
     const { name, email, message } = req.body;
 
     if (
@@ -27,7 +27,7 @@ app.post('/mail', (req, res) => {
     }
 
     try {
-        transport.sendMail({
+        await transport.sendMail({
             from: `Portfolio <rubensgalani@gmail.com>`,
             to: "rubensgalani@gmail.com",
             replyTo: email,

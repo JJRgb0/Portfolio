@@ -5,7 +5,7 @@ import { ScrollSmoother } from 'gsap/ScrollSmoother';
 
 gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
 
-function mainGSAP({ wrapperRef, contentRef, sunRef, aboutRef, knowledgeRef, projectsRef, contactRef }: { wrapperRef: RefObject<HTMLElement | null>; contentRef: RefObject<HTMLDivElement | null>; sunRef: RefObject<HTMLVideoElement | null>; aboutRef: RefObject<HTMLElement | null>; knowledgeRef: RefObject<HTMLElement | null>; projectsRef: RefObject<HTMLElement | null>; contactRef: RefObject<HTMLElement | null> }) {
+function mainGSAP({ wrapperRef, contentRef, sunRef, aboutRef, knowledgeRef, projectsRef, contactRef, toZero }: { wrapperRef: RefObject<HTMLElement | null>; contentRef: RefObject<HTMLDivElement | null>; sunRef: RefObject<HTMLIFrameElement | HTMLImageElement | null>; aboutRef: RefObject<HTMLElement | null>; knowledgeRef: RefObject<HTMLElement | null>; projectsRef: RefObject<HTMLElement | null>; contactRef: RefObject<HTMLElement | null>; toZero: boolean }) {
 
     const smoother = ScrollSmoother.create({
         wrapper: wrapperRef.current,
@@ -14,7 +14,9 @@ function mainGSAP({ wrapperRef, contentRef, sunRef, aboutRef, knowledgeRef, proj
         smoothTouch: 0.5,
     })
 
-    smoother.scrollTo(0, false);
+    if (toZero) {
+        smoother.scrollTo(0, false);
+    }
 
     const mm = gsap.matchMedia();
     const animations: (gsap.core.Timeline | gsap.core.Tween)[] = [];
