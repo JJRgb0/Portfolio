@@ -37,9 +37,9 @@ function Home({ ref, smoother }: { ref: RefObject<HTMLElement | null>; smoother:
                 <button onClick={contactScroll}>Contact-me</button>
             </div>
             <div ref={linksRef} className="links">
-                <a href="files/Rubens de Melo Galani.pdf" download="Resume.pdf"><Download /></a>
-                <a href="https://github.com/JJRgb0?tab=repositories" target="_blank"><Github /></a>
-                <a href="https://www.linkedin.com/in/rubens-melo-galani-240154288/" target="_blank"><Linkedin /></a>
+                <a href="files/Currículo_Full-Stack.pdf" download="Resume.pdf"><Download /></a>
+                <a href="https://github.com/JJRgb0" target="_blank"><Github /></a>
+                <a href="https://www.linkedin.com/in/rubens-dmg" target="_blank"><Linkedin /></a>
             </div>
         </section>
     )
