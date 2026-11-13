@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+<url>
+<loc>https://rubens-dmg.vercel.app/</loc>
+<xhtml:link rel="alternate" hreflang="pt-BR" href="https://rubens-dmg.vercel.app/" />
+<xhtml:link rel="alternate" hreflang="en" href="https://rubens-dmg.vercel.app/en/" />
+</url>
+<url>
+<loc>https://rubens-dmg.vercel.app/en/</loc>
+<xhtml:link rel="alternate" hreflang="pt-BR" href="https://rubens-dmg.vercel.app/" />
+<xhtml:link rel="alternate" hreflang="en" href="https://rubens-dmg.vercel.app/en/" />
+</url>
+<url>
+<loc>https://rubens-dmg.vercel.app/projetos/kdlux/</loc>
+<xhtml:link rel="alternate" hreflang="pt-BR" href="https://rubens-dmg.vercel.app/projetos/kdlux/" />
+<xhtml:link rel="alternate" hreflang="en" href="https://rubens-dmg.vercel.app/en/projects/kdlux/" />
+</url>
+<url>
+<loc>https://rubens-dmg.vercel.app/en/projects/kdlux/</loc>
+<xhtml:link rel="alternate" hreflang="pt-BR" href="https://rubens-dmg.vercel.app/projetos/kdlux/" />
+<xhtml:link rel="alternate" hreflang="en" href="https://rubens-dmg.vercel.app/en/projects/kdlux/" />
+</url>
+<url>
+<loc>https://rubens-dmg.vercel.app/projetos/golden-ace/</loc>
+<xhtml:link rel="alternate" hreflang="pt-BR" href="https://rubens-dmg.vercel.app/projetos/golden-ace/" />
+<xhtml:link rel="alternate" hreflang="en" href="https://rubens-dmg.vercel.app/en/projects/golden-ace/" />
+</url>
+<url>
+<loc>https://rubens-dmg.vercel.app/en/projects/golden-ace/</loc>
+<xhtml:link rel="alternate" hreflang="pt-BR" href="https://rubens-dmg.vercel.app/projetos/golden-ace/" />
+<xhtml:link rel="alternate" hreflang="en" href="https://rubens-dmg.vercel.app/en/projects/golden-ace/" />
+</url>
+</urlset>

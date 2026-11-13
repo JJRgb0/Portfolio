@@ -1,0 +1,4 @@
+User-Agent: *
+Allow: /
+
+Sitemap: https://rubens-dmg.vercel.app/sitemap.xml

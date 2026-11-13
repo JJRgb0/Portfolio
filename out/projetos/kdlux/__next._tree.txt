@@ -1,0 +1,9 @@
+:HL["/_next/static/chunks/2n-ay8yyaeei3.css","style"]
+:HL["/_next/static/media/geist-s.p.20f3xrkj613ah.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/geist_mono-s.p.07nc5rf20ybdn.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/projects/kdlux/poster.webp","image",{"imageSrcSet":"/projects/kdlux/poster-720.webp 720w, /projects/kdlux/poster-1440.webp 1440w, /projects/kdlux/poster.webp 2880w","imageSizes":"(min-width: 1160px) 1080px, (min-width: 768px) calc(100vw - 80px), calc(100vw - 48px)","fetchPriority":"high"}]
+4:[["children",{"s":"__PAGE__","h":160}]]
+3:[["children",{"s":{"n":"slug","t":"d","k":"kdlux","s":[]},"h":65632,"c":"$Q4"}]]
+2:[["children",{"s":"projetos","h":131168,"c":"$Q3"}]]
+1:[["children",{"s":"(pt)","h":131184,"c":"$Q2"}]]
+0:{"b":"fz4Z4cXk7daWKGyniGyEV","t":{"t":{"s":"","h":131152,"c":"$Q1"}}}

@@ -1,0 +1,17 @@
+{
+  "testCommand": "npm test -- --reporter=./tests/tap-reporter.mjs",
+  "reporter": "tap",
+  "testGlobs": ["tests/e2e/**/*.spec.ts"],
+  "srcGlobs": [
+    "app/**",
+    "scripts/**",
+    "components/**",
+    "content/**",
+    "lib/**",
+    "public/**",
+    "assets/**",
+    "next.config.ts",
+    "package.json",
+    "package-lock.json"
+  ]
+}

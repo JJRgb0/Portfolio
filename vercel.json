@@ -1,45 +1,8 @@
 {
-    "builds": [
-        {
-            "src": "client/package.json",
-            "use": "@vercel/static-build",
-            "config": {
-                "distDir": "dist"
-            }
-        },
-        {
-            "src": "api/index.ts",
-            "use": "@vercel/node"
-        }
-    ],
-    "routes": [
-        {
-            "src": "/favicon.ico",
-            "dest": "/client/favicon.ico"
-        },
-        {
-            "src": "/files/(.*)",
-            "dest": "/client/files/$1"
-        },
-        {
-            "src": "/mail",
-            "dest": "/api/index.ts"
-        },
-        {
-            "src": "/assets/(.*)",
-            "dest": "/client/assets/$1"
-        },
-        {
-            "src": "/images/(.*)",
-            "dest": "/client/images/$1"
-        },
-        {
-            "src": "/videos/(.*)",
-            "dest": "/client/videos/$1"
-        },
-        {
-            "src": "/(.*)",
-            "dest": "/client/index.html"
-        }
-    ]
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "routes": [
+    { "handle": "filesystem" },
+    { "src": "/en(?:/.*)?", "status": 404, "dest": "/en/404/index.html" },
+    { "src": "/.*", "status": 404, "dest": "/404.html" }
+  ]
 }

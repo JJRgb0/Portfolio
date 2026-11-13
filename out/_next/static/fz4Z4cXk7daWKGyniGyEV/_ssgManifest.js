@@ -1,0 +1,1 @@
+self.__SSG_MANIFEST=new Set(["\u002Fen\u002Fprojects\u002F[slug]","\u002Fen\u002Fprojects\u002F[slug]\u002Fopengraph-image","\u002Fprojetos\u002F[slug]","\u002Fprojetos\u002F[slug]\u002Fopengraph-image"]);self.__SSG_MANIFEST_CB&&self.__SSG_MANIFEST_CB()
